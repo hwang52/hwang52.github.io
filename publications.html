@@ -1,20 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<!--<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
-<!--    -->
-<!--    <title>Hezhe Qiao, Singapore Management University</title>-->
-<!--    &lt;!&ndash; Website Styles &ndash;&gt;-->
-<!--    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">-->
-<!--    <link href="style/css" rel="stylesheet" type="text/css">-->
-<!--    <link href="style/css(1)" rel="stylesheet" type="text/css">-->
-<!--</head>-->
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hezhe Qiao's Website</title>
     <style>
-        /* 基本重置 */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -22,72 +13,181 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.8;
+            font-size: 18px;
+            padding: 20px; /* 页面整体留白，防止顶边 */
         }
 
         /* Header 样式 */
-        #header {
-            background-color: #3949ab;
+        header {
+            width: 100%;
+            background: linear-gradient(90deg, #3949ab, #1a237e);
             color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            padding: 20px 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             position: sticky;
             top: 0;
             z-index: 999;
         }
 
-        #header .inner {
-            max-width: 1000px;
+        .header-inner {
+            max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            padding: 0 20px;
         }
 
-        #header .log p {
-            font-size: 24px;
-            font-weight: 600;
+        .logo a {
             color: #fff;
-            margin: 0;
-        }
-
-        /* 导航样式 */
-        #header .nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        #header .nav li {
-            display: inline-block;
-        }
-
-        #header .nav a {
+            font-size: 28px;
+            font-weight: bold;
             text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo a:hover {
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        nav a {
             color: #fff;
-            font-size: 16px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+            font-size: 18px;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
         }
 
-        #header .nav a:hover,
-        #header .nav .current a {
-            background-color: #1a237e;
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
         }
 
+        nav a:hover::after,
+        nav .current a::after {
+            width: 100%;
+        }
+
+        /* 头像 + 简介 样式 */
+        .profile, .content {
+            max-width: 1200px;
+            width: 95%;
+            margin: 40px auto;
+            padding: 30px 40px; /* 重点：左右多留空隙 */
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .profile .left img {
+            width: 280px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile .right {
+            margin-left: 40px;
+            flex: 1;
+        }
+
+        .profile .right p,
+        .profile .right a {
+            margin-bottom: 10px;
+        }
+
+        .profile .right a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .profile .right a:hover {
+            text-decoration: underline;
+        }
+
+        h3 {
+            font-size: 26px;
+            color: #002D72;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        p, li {
+            font-size: 18px;
+        }
+
+        .divider.line {
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #FF4D50;
+            font-weight: bold;
+        }
+
+        /* 响应式 */
         @media screen and (max-width: 768px) {
-            #header .inner {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .profile {
                 flex-direction: column;
                 text-align: center;
             }
 
-            #header .nav ul {
-                flex-direction: column;
-                gap: 10px;
+            .profile .right {
+                margin-left: 0;
+                margin-top: 30px;
+            }
+
+            .profile, .content {
+                padding: 20px; /* 小屏时稍微减小内边距 */
             }
         }
     </style>
