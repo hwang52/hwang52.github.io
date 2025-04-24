@@ -1,83 +1,168 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <title>Hezhe Qiao, Singapore Management University</title>
-    <!-- Website Styles -->
-    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
-    <link href="style/css" rel="stylesheet" type="text/css">
-    <link href="style/css(1)" rel="stylesheet" type="text/css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hezhe Qiao - Student Collaboration</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      line-height: 1.8;
+      font-size: 18px;
+      padding: 20px; /* 页面整体留白 */
+    }
+
+    #wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    #header {
+      background-color: #3949ab;
+      color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border-radius: 12px;
+    }
+
+    #header .inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #header .log p {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    #header .log a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #header .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    #header .nav a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    #header .nav a:hover,
+    #header .nav .current a {
+      background-color: #1a237e;
+    }
+
+    /* 内容区域 */
+    .content {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      padding: 30px 40px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      font-size: 26px;
+      color: #002D72;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+
+    ul {
+      list-style: square inside;
+      margin: 20px 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .divider.line {
+      border-top: 1px solid #ccc;
+      margin: 30px 0;
+    }
+
+    /* 响应式 */
+    @media screen and (max-width: 768px) {
+      #header .inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #header .nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      body {
+        padding: 10px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
+<body>
+  <div id="wrapper">
+    <div id="header">
+      <div class="inner">
+        <div class="log">
+          <p><a href="index.html">Hezhe Qiao</a></p>
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li class="current"><a href="group.html">Group</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<body >
-    <div id="wrapper" >
-        <!-- HEADER START -->
-        <div id="header" >
-		<div class="inner" >
-      <div class="log">
-                    <p><font size="+2"> <a href="index.html">Hezhe Qiao</a></font></p>
-                </div>
+    <div class="content">
+      <h3>Current Students Co-supervision/Collaboration</h3>
+      <ul>
+        <li>Yutong Chen: PhD at UCAS with Prof. Guansong Pang, 09/2023-, time series anomaly detection (ECML PKDDx1)</li>
+        <li>Guolei Zeng: PhD at Oxford with Prof. Guansong Pang, 06/2024-, graph anomaly detection</li>
+        <li>Guoguo Ai: PhD at NJUST with Prof. Guansong Pang, 11/2024-, graph representation learning</li>
+        <li>Ye Su: MS at UCAS with Assistant Prof. Lin Chen, 06/2024-, time series prediction (BIBMx1)</li>
+        <li>Ruikang An: MS at UCAS with Assistant Prof. Lin Chen, 3/2025-, backdoor attack on GNN</li>
+      </ul>
 
-                <div class="nav">
-                    <ul>
-                        <li >
-                            <a href="index.html">Home</a>
-                        </li>
-<!--						<li >-->
-<!--                            <a href="research.html">Research</a>-->
-<!--                        </li>-->
-                        <li>
-                            <a href="publication_primary.html">Publications</a>
-                        </li>
-						<li class="current">
-                            <a href="group.html">Group</a>
-                        </li>
-<!--                        <li>-->
-<!--                            <a href="teaching.html">Teaching</a>-->
-<!--                        </li>-->
-                        
-						
-                    </ul>
-                </div><!-- #nav end -->
-                <div class="clear"></div>
-            </div><!-- .inner end -->
-        </div><!-- #header end -->
+      <div class="divider line"></div>
 
-        <!-- MAIN CONTENT START -->
-        <div id="main">
-            <div class="inner">
-
-				<ul class="list square">  
-                    
-				  <h3>Current Students Co-supervision/Collaboration</h3>
-<li>Yutong Chen: PhD at UCAS with Prof. Guansong Pang, 09/2023-, time series anomaly detection (ECML PKDDx1)</li>
- <li>Guolei Zeng: PhD at Oxford with Prof. Guansong Pang, 06/2024-, graph anomaly detection</li>
- <li>Guoguo Ai: PhD at NJUST with Prof. Guansong Pang, 11/2024-, graph representation learning</li>
-<li>Ye Su: MS at UCAS with Assistant Prof. Lin Chen, 06/2024-, time series prediction (BIBMx1)  </li>
-<li>Ruikang An: MS at UCAS with Assistant Prof. Lin Chen, 3/2025-,  backdoor attack on GNN  </li>
-
-<div class="divider line"></div>
-<h3>Former Students Co-supervision/Collaboration</h3>
- <li>Haifu Ye: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-04/2025, video anomaly detection </li>
-<li>Hongbin Liang: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-07/2024, pedestrian crossing intent prediction (ICONIPx1)</li>
- <li>Ruhui Zhang: PhD at CUPT with Assistant Prof. Lin Chen, 10/2024-01/2025,  multi-label recognition (ICMEx1)</li>
-
-
-					
-
-					
-                </ul>
-
-
-				
-				<div class="divider line"></div>
-                <div id="copyright" class="copyright footer_small">
-                    <ul class="links">
-                        <!-- <li>&copy; UC Regents 2019.</li> -->
-                      <li>Webpage template borrows from <a href="https://cs.rice.edu/~xh37/index.html">Prof Xia "Ben" Hu</a> and <a href="https://xiangwang1223.github.io/">Prof Wang Xiang</a> </li>
-                    </ul>
-                </div>
-				</div>
-				</div>
-    
+      <h3>Former Students Co-supervision/Collaboration</h3>
+      <ul>
+        <li>Haifu Ye: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-04/2025, video anomaly detection</li>
+        <li>Hongbin Liang: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-07/2024, pedestrian crossing intent prediction (ICONIPx1)</li>
+        <li>Ruhui Zhang: PhD at CUPT with Assistant Prof. Lin Chen, 10/2024-01/2025, multi-label recognition (ICMEx1)</li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
