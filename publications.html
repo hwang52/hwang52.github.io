@@ -1,13 +1,97 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <title>Hezhe Qiao, Singapore Management University</title>
-    <!-- Website Styles -->
-    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
-    <link href="style/css" rel="stylesheet" type="text/css">
-    <link href="style/css(1)" rel="stylesheet" type="text/css">
-</head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+<!--    -->
+<!--    <title>Hezhe Qiao, Singapore Management University</title>-->
+<!--    &lt;!&ndash; Website Styles &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">-->
+<!--    <link href="style/css" rel="stylesheet" type="text/css">-->
+<!--    <link href="style/css(1)" rel="stylesheet" type="text/css">-->
+<!--</head>-->
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hezhe Qiao's Website</title>
+    <style>
+        /* 基本重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        /* Header 样式 */
+        #header {
+            background-color: #3949ab;
+            color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        #header .inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        #header .log p {
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* 导航样式 */
+        #header .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        #header .nav li {
+            display: inline-block;
+        }
+
+        #header .nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        #header .nav a:hover,
+        #header .nav .current a {
+            background-color: #1a237e;
+        }
+
+        @media screen and (max-width: 768px) {
+            #header .inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #header .nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
 <body data-new-gr-c-s-check-loaded="14.1083.0" data-gr-ext-installed="">
     <div id="wrapper">
         <!-- HEADER START -->
