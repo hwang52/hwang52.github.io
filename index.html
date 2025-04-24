@@ -1,36 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>Hezhe Qiao(乔贺辙), Singapore Management University</title>
-    <!-- Website Styles -->
-    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
-    <link href="style/css" rel="stylesheet" type="text/css">
-    <link href="style/css(1)" rel="stylesheet" type="text/css">
-</head>
-
-
-<body data-new-gr-c-s-check-loaded="14.1083.0" data-gr-ext-installed="">
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hezhe Qiao's Website</title>
     <style>
-        /* 基本重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.8;
+            font-size: 18px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-
-        /* Header 样式 */
         #header {
             background-color: #3949ab;
             color: #fff;
@@ -40,35 +29,25 @@
             top: 0;
             z-index: 999;
         }
-
         #header .inner {
-            max-width: 1000px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            padding: 0 20px;
         }
-
         #header .log p {
             font-size: 24px;
             font-weight: 600;
-            color: #fff;
-            margin: 0;
         }
-
-        /* 导航样式 */
+        #header .log a {
+            color: #fff;
+            text-decoration: none;
+        }
         #header .nav ul {
             list-style: none;
             display: flex;
             gap: 20px;
         }
-
-        #header .nav li {
-            display: inline-block;
-        }
-
         #header .nav a {
             text-decoration: none;
             color: #fff;
@@ -77,68 +56,102 @@
             border-radius: 4px;
             transition: background-color 0.3s;
         }
-
         #header .nav a:hover,
         #header .nav .current a {
             background-color: #1a237e;
         }
-
+        h3 {
+            font-size: 26px;
+            color: #002D72;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h4 {
+            margin: 20px 0;
+            font-size: 20px;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style: disc inside;
+            margin: 15px 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .divider.line {
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            margin: 60px 0;
+            padding: 30px;
+        }
+        .left img {
+            width: 280px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        .right {
+            margin-left: 40px;
+            flex: 1;
+        }
+        .right p {
+            margin-bottom: 10px;
+        }
         @media screen and (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
             #header .inner {
                 flex-direction: column;
                 text-align: center;
             }
-
             #header .nav ul {
                 flex-direction: column;
                 gap: 10px;
+            }
+            .container {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .right {
+                margin-left: 0;
+                margin-top: 30px;
             }
         }
     </style>
 </head>
 <body>
-
     <div id="wrapper">
-        <!-- HEADER START -->
         <div id="header">
             <div class="inner">
-                <!-- Logo (Optional) -->
-                <!--
-                <div class="logo">
-                    <img src="style/rice.jpeg" alt="Purity" width="60" height="60">
-                </div>
-                -->
-
-                <!-- Header Text -->
                 <div class="log">
-                    <p><font size="+2">Hezhe Qiao (乔贺辙)</font></p>
+                    <p><a href="index.html">Hezhe Qiao (乔贺辙)</a></p>
                 </div>
-
-                <!-- Navigation Menu -->
                 <div class="nav">
                     <ul>
-                        <li class="current">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="publication_primary.html">Publications</a>
-                        </li>
-                        <li>
-                            <a href="group.html">Group</a>
-                        </li>
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="publication_primary.html">Publications</a></li>
+                        <li><a href="group.html">Group</a></li>
                     </ul>
-                </div><!-- #nav end -->
-
-                <div class="clear"></div>
-            </div><!-- .inner end -->
-        </div><!-- #header end -->
-    </div><!-- #wrapper end -->
-
-</body>
-</html>
-
-
-
+                </div>
+            </div>
+        </div>
         <!-- MAIN CONTENT START -->
         <div id="main">
 <style>
