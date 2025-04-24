@@ -11,42 +11,58 @@
 
 <body data-new-gr-c-s-check-loaded="14.1083.0" data-gr-ext-installed="">
 
-       <style>
-        /* Header Styling */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hezhe Qiao's Website</title>
+    <style>
+        /* 基本重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        /* Header 样式 */
         #header {
-            background: linear-gradient(90deg, #1a237e, #3949ab);
+            background-color: #3949ab;
             color: #fff;
-            padding: 20px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 999;
         }
 
         #header .inner {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
             padding: 0 20px;
         }
 
         #header .log p {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 600;
-            margin: 0;
             color: #fff;
-            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
         }
 
+        /* 导航样式 */
         #header .nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
+            gap: 20px;
         }
 
         #header .nav li {
@@ -57,66 +73,70 @@
             text-decoration: none;
             color: #fff;
             font-size: 16px;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: background 0.3s ease;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
 
         #header .nav a:hover,
         #header .nav .current a {
-            background: rgba(255, 255, 255, 0.2);
-            color: #ffeb3b;
+            background-color: #1a237e;
         }
 
         @media screen and (max-width: 768px) {
             #header .inner {
                 flex-direction: column;
-                align-items: flex-start;
+                text-align: center;
             }
 
             #header .nav ul {
                 flex-direction: column;
                 gap: 10px;
-                margin-top: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div id="header">
-        <div class="inner">
-            <!-- Logo (Optional) -->
-            <!--
-            <div class="logo">
-                <img src="style/rice.jpeg" alt="Purity" width="60" height="60">
-            </div>
-            -->
+    <div id="wrapper">
+        <!-- HEADER START -->
+        <div id="header">
+            <div class="inner">
+                <!-- Logo (Optional) -->
+                <!--
+                <div class="logo">
+                    <img src="style/rice.jpeg" alt="Purity" width="60" height="60">
+                </div>
+                -->
 
-            <!-- Header Text -->
-            <div class="log">
-                <p><font size="+2">Hezhe Qiao (乔贺辙)</font></p>
-            </div>
+                <!-- Header Text -->
+                <div class="log">
+                    <p><font size="+2">Hezhe Qiao (乔贺辙)</font></p>
+                </div>
 
-            <!-- Navigation Menu -->
-            <div class="nav">
-                <ul>
-                    <li class="current">
-                        <a href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="publication_primary.html">Publications</a>
-                    </li>
-                    <li>
-                        <a href="group.html">Group</a>
-                    </li>
-                </ul>
-            </div><!-- #nav end -->
+                <!-- Navigation Menu -->
+                <div class="nav">
+                    <ul>
+                        <li class="current">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="publication_primary.html">Publications</a>
+                        </li>
+                        <li>
+                            <a href="group.html">Group</a>
+                        </li>
+                    </ul>
+                </div><!-- #nav end -->
 
-            <div class="clear"></div>
-        </div><!-- .inner end -->
-    </div><!-- #header end -->
+                <div class="clear"></div>
+            </div><!-- .inner end -->
+        </div><!-- #header end -->
+    </div><!-- #wrapper end -->
+
+</body>
+</html>
+
 
 
         <!-- MAIN CONTENT START -->
