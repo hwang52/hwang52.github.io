@@ -1,400 +1,92 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <title>Hezhe Qiao(乔贺辙), Singapore Management University</title>
-    <!-- Website Styles -->
-    <link rel="stylesheet" href="style/style.css" type="text/css" media="screen">
-    <link href="style/css" rel="stylesheet" type="text/css">
-    <link href="style/css(1)" rel="stylesheet" type="text/css">
-</head>
-
-
-<body data-new-gr-c-s-check-loaded="14.1083.0" data-gr-ext-installed="">
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hezhe Qiao's Website</title>
-    <style>
-        /* 基本重置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-        }
-
-        /* Header 样式 */
-        #header {
-            background-color: #3949ab;
-            color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
-
-        #header .inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-
-        #header .log p {
-            font-size: 24px;
-            font-weight: 600;
-            color: #fff;
-            margin: 0;
-        }
-
-        /* 导航样式 */
-        #header .nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        #header .nav li {
-            display: inline-block;
-        }
-
-        #header .nav a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 16px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        #header .nav a:hover,
-        #header .nav .current a {
-            background-color: #1a237e;
-        }
-
-        @media screen and (max-width: 768px) {
-            #header .inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            #header .nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div id="wrapper">
-        <!-- HEADER START -->
         <div id="header">
             <div class="inner">
-                <!-- Logo (Optional) -->
-                <!--
-                <div class="logo">
-                    <img src="style/rice.jpeg" alt="Purity" width="60" height="60">
-                </div>
-                -->
-
-                <!-- Header Text -->
                 <div class="log">
-                    <p><font size="+2">Hezhe Qiao (乔贺辙)</font></p>
+                    <p>Hezhe Qiao (乔贺辙)</p>
                 </div>
-
-                <!-- Navigation Menu -->
                 <div class="nav">
                     <ul>
-                        <li class="current">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="publication_primary.html">Publications</a>
-                        </li>
-                        <li>
-                            <a href="group.html">Group</a>
-                        </li>
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="publication_primary.html">Publications</a></li>
+                        <li><a href="group.html">Group</a></li>
                     </ul>
-                </div><!-- #nav end -->
+                </div>
+            </div>
+        </div>
 
-                <div class="clear"></div>
-            </div><!-- .inner end -->
-        </div><!-- #header end -->
-    </div><!-- #wrapper end -->
+        <div class="container">
+            <div class="left">
+                <img src="image/profile.jpg" alt="Profile Picture">
+            </div>
+            <div class="right">
+                <p><strong>PhD Student</strong><br>
+                <a href="https://scis.smu.edu.sg/" target="_blank">School of Computing and Information Systems</a><br>
+                <a href="https://www.smu.edu.sg/" target="_blank">Singapore Management University</a></p>
 
+                <p><strong>Email:</strong><br>
+                hezheqiao.2022[at]phdcs.smu.edu.sg<br>
+                hezheqiao[at]gmail.com</p>
+
+                <p>&bull; <a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+                &bull; <a href="https://github.com/fengduqianhe" target="_blank">GitHub</a>
+                &bull; <a href="https://twitter.com/qiaohezhe" target="_blank">Twitter</a>
+                &bull; <a href="https://www.linkedin.com/in/hezhe-qiao-83761b247/" target="_blank">LinkedIn</a></p>
+
+                <p><strong>Office:</strong><br>
+                SMU School of Computing and Information Systems, Singapore 178902</p>
+            </div>
+        </div>
+
+        <div class="divider line"></div>
+
+        <h3>Biography</h3>
+        <p>I am a Ph.D. candidate at <a href="https://www.smu.edu.sg/" target="_blank">Singapore Management University</a>, supervised by <a href="https://sites.google.com/site/gspangsite/home" target="_blank">Prof. Guansong Pang</a>. I also closely collaborate with <a href="http://tonghanghang.org/" target="_blank">Prof. Hanghang Tong</a>. My research interests lie in using deep learning and machine learning to build trustworthy AI systems. Currently, I focus on graph anomaly detection, backdoor attacks and defenses on graph neural networks, and large language models. I also explore related areas such as:</p>
+        <ul>
+            <li>Graph representation learning / Graph foundation models</li>
+            <li>Anomaly/Outlier detection (time series, image, video, tabular data)</li>
+            <li>LLM-based explanation for anomaly detection</li>
+            <li>Safety and security in foundation models</li>
+            <li>Fake news, image and misinformation detection / Fact-checking</li>
+        </ul>
+
+        <div class="divider line"></div>
+
+        <h3>Collaboration Opportunities</h3>
+        <ul>
+            <li>I am always open to collaborations with researchers, as well as undergraduate and graduate students seeking Ph.D. positions on large language models, graph learning, or anomaly detection. Feel free to contact me at hezheqiao[at]gmail.com, <a href="https://www.linkedin.com/in/hezhe-qiao-83761b247/" target="_blank">LinkedIn</a>, or <a href="https://hezheqiao2022.github.io/image/wechat.jpg" target="_blank">WeChat</a>.</li>
+        </ul>
+
+        <div class="divider line"></div>
+
+        <h3>Pin</h3>
+        <ul>
+            <li>Check out our survey on deep graph anomaly detection: <a href="https://arxiv.org/abs/2409.09957">Deep Graph Anomaly Detection: A Survey and New Perspectives</a> and its <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/tree/main">GitHub repository</a>.</li>
+            <li>We just released a GitHub repository summarizing papers on foundation models for anomaly detection: <a href="https://github.com/mala-lab/Awesome-Anomaly-Detection-with-Foundation-Models">Awesome Anomaly Detection with Foundation Models</a>.</li>
+        </ul>
+
+        <div class="divider line"></div>
+
+        <h3>News</h3>
+        <!-- Your news content here -->
+
+        <div class="divider line"></div>
+
+        <h3>Honors and Awards</h3>
+        <!-- Your awards content here -->
+
+        <div class="divider line"></div>
+
+        <h3>Services</h3>
+        <!-- Your services content here -->
+    </div>
 </body>
 </html>
-
-
-
-        <!-- MAIN CONTENT START -->
-        <div id="main">
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #ffffff;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    margin: 60px auto;
-    padding: 30px;
-    background-color: #fdfdfd;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  }
-
-  .left {
-    flex-shrink: 0;
-  }
-
-  .left img {
-    width: 280px;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  .right {
-    margin-left: 40px;
-    font-size: 18px;
-    line-height: 1.8;
-    flex: 1;
-  }
-
-  .right a {
-    color: #1a73e8;
-    text-decoration: none;
-  }
-
-  .right a:hover {
-    text-decoration: underline;
-  }
-
-  .right strong {
-    color: #000;
-  }
-
-  @media screen and (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .right {
-      margin-left: 0;
-      margin-top: 30px;
-    }
-  }
-</style>
-
-<div class="container">
-  <div class="left">
-    <img src="image/profile.jpg" alt="Profile Picture">
-  </div>
-
-  <div class="right">
-    <p><strong>PhD Student</strong><br>
-      <a href="https://scis.smu.edu.sg/" target="_blank" rel="nofollow">School of Computing and Information Systems</a><br>
-      <a href="https://www.smu.edu.sg/" target="_blank" rel="nofollow">Singapore Management University</a>
-    </p>
-
-    <p><strong>Email:</strong><br>
-      hezheqiao.2022\[at\]phdcs.smu.edu.sg<br>
-      hezheqiao[at]gmail.com
-    </p>
-
-    <p>
-      &bull; <a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
-      &bull; <a href="https://github.com/fengduqianhe" target="_blank">GitHub</a>
-      &bull; <a href="https://twitter.com/qiaohezhe" target="_blank">Twitter</a>
-      &bull; <a href="https://www.linkedin.com/in/hezhe-qiao-83761b247/" target="_blank">LinkedIn</a>
-    </p>
-
-    <p><strong>Office:</strong><br>
-      SMU School of Computing and Information Systems, Singapore 178902
-    </p>
-  </div>
-</div>
-
-     <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.8;
-        font-size: 18px;
-        color: #333;
-        background-color: #fff;
-    }
-    h3 {
-        font-size: 26px;
-        color: #002D72;
-        border-bottom: 2px solid #ddd;
-        padding-bottom: 5px;
-        margin-top: 40px;
-    }
-    p, li {
-        font-size: 18px;
-    }
-    .divider.line {
-        border-top: 1px solid #ccc;
-        margin: 30px 0;
-    }
-    a {
-        color: #0056b3;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    li {
-        margin-bottom: 10px;
-    }
-    .highlight {
-        color: #FF4D50;
-        font-weight: bold;
-    }
-</style>
-
-<div class="divider line"></div>
-
-<h3>Biography</h3>
-<p>
-    I am a Ph.D. candidate at <a href="https://www.smu.edu.sg/" target="_blank">Singapore Management University</a>, supervised by
-    <a href="https://sites.google.com/site/gspangsite/home" target="_blank">Prof. Guansong Pang</a>. I also closely collaborate with
-    <a href="http://tonghanghang.org/" target="_blank">Prof. Hanghang Tong</a>. My research interests lie in using deep learning and machine learning to build trustworthy AI systems. Currently, I focus on graph anomaly detection, backdoor attacks and defenses on graph neural networks, and large language models. I also explore related areas such as:
-</p>
-<ul>
-    <li>Graph representation learning / Graph foundation models</li>
-    <li>Anomaly/Outlier detection (time series, image, video, tabular data)</li>
-    <li>LLM-based explanation for anomaly detection</li>
-    <li>Safety and security in foundation models</li>
-    <li>Fake news, image and misinformation detection / Fact-checking</li>
-</ul>
-<p>
-    I’m excited to work with colleagues at the <a href="https://github.com/mala-lab" target="_blank">Machine Learning & Applications (MaLA) Lab</a>,
-    focusing on abnormal/unknown data instance detection and generalized learning algorithms for creating trustworthy continual AI systems.
-</p>
-
-<div class="divider line"></div>
-
-<h3>Collaboration Opportunities</h3>
-<ul>
-    <li>
-        I am always open to collaborations with researchers, as well as undergraduate and graduate students seeking Ph.D. positions
-        on large language models, graph learning, or anomaly detection. Feel free to contact me at hezheqiao[at]gmail.com,
-        <a href="https://www.linkedin.com/in/hezhe-qiao-83761b247/" target="_blank" rel="nofollow">LinkedIn</a>, or
-        <a href="https://hezheqiao2022.github.io/image/wechat.jpg" target="_blank">WeChat</a>.
-    </li>
-</ul>
-
-<div class="divider line"></div>
-
-<h3>Pin</h3>
-<ul>
-    <li>
-        Check out our survey on deep graph anomaly detection:
-        <a href="https://arxiv.org/abs/2409.09957">Deep Graph Anomaly Detection: A Survey and New Perspectives</a>
-        and its <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/tree/main">GitHub repository</a>.
-    </li>
-    <li>
-        We just released a GitHub repository summarizing papers on foundation models for anomaly detection:
-        <a href="https://github.com/mala-lab/Awesome-Anomaly-Detection-with-Foundation-Models">Awesome Anomaly Detection with Foundation Models</a>.
-    </li>
-</ul>
-
-<div class="divider line"></div>
-
-<h3>News</h3>
-<ul>
-    <li><span class="highlight">[New!]</span> 2025/04: One paper on graph anomaly detection is accepted to IJCAI 2025.</li>
-    <li>2025/04: One paper on tiny-model selection is accepted to TMC.</li>
-    <li>2025/03: One paper on multi-label recognition is accepted to ICME 2025.</li>
-    <li>2025/03: Honored to be a student volunteer for <a href="https://computing.smu.edu.sg/research/workshop/cvml-genai2025" target="_blank">CVML-GenAI Workshop</a> at ICLR 2025.</li>
-    <li>2025/02: I will join UIUC as a visiting student in May 2025!</li>
-    <li>2025/01: Invited as a PC Member for KDD 2025.</li>
-    <li>... (continue other news items as needed) ...</li>
-</ul>
-
-<div class="divider line"></div>
-
-<h3>Honors and Awards</h3>
-<ul>
-    <li>SMU Presidential Doctoral Fellowship, 2024</li>
-    <li>Mark Weiser Best Paper Award, PerCom 2023</li>
-    <li>PhD Full Scholarship, Ministry of Education, Singapore, 2023</li>
-    <li>Dean Scholarship, Chinese Academy of Sciences, 2022</li>
-    <li>First Prize, Dean Scholarship, Chengdu Branch, CAS, 2021</li>
-</ul>
-
-<div class="divider line"></div>
-
-<h3>Services</h3>
-<ul>
-    <li><strong>Program Committee (Selected):</strong> ICLR, NeurIPS, KDD</li>
-    <li><strong>Journal Reviewer (Selected):</strong> IEEE TKDE, IEEE TNNLS, IEEE TDSC, IEEE TAI, Neurocomputing</li>
-    <li><strong>Teaching Experience:</strong> CS425 - Natural Language Communication (Undergraduate), Tutor, Autumn 2024, SMU</li>
-    <li><strong>Student Volunteer:</strong> WSDM 2023, WebConf 2024</li>
-</ul>
-
-<div class="divider line"></div>
-
-
-
-            <!--                <li>  Outstanding Student of University of the Chinese Academy of Sciences 2020, 2021</li>-->
-<!--                <li>  Outstanding graduates, Outstanding Student of the Chengdu University of Technology 2016,2017,2018,2019</li>-->
-<!--                <li>  Hundred Excellent Academic Dissertations of the Chengdu University of Technology 2019</li>-->
-<!--                <li>  Outstanding Student of University of the Chengdu University of Technology 2016,2017,2018</li>-->
-
-<!--				<div class="divider line"></div>-->
-
-<!--		<h3> Background </h3>-->
-<!--                <li>  2022-present: Ph.D. in Computer Science, Singapore Management University, Singapore-->
-<!--&lt;!&ndash;                    <br>&emsp;&emsp;&emsp;&emsp; Supervisor: <a href="" target="_blank">Prof Guansong Pang</a></li>&ndash;&gt;-->
-<!--                <li>  2019-2022: Master in Computer Science, University of the Chinese Academy of Sciences, China-->
-<!--&lt;!&ndash;                    <br>&emsp;&emsp;&emsp;&emsp; Supervisor: <a href="" target="_blank">Prof Fan Zhu</a>;</li>&ndash;&gt;-->
-<!--                <li>  2015-2019: Bachelor in Computer Science and Technology, Chengdu University of Technology, China-->
-<!--&lt;!&ndash;                 <br>&emsp;&emsp;&emsp;&emsp; Supervisor: <a href="" target="_blank">Prof Xiaopeng Leng</a>;</li>&ndash;&gt;-->
-<!--<br>-->
-<!--  <div class="divider line"></div>-->
-
-<!--        <h3> Professional Experiences</h3>-->
-<!--  <li> School of Computing and Information Systems, SMU,  research engineer advised by <a href="https://sites.google.com/site/gspangsite/home" target="_blank"> [Prof. Guansong Pang]</a> 2022-2023  </li>-->
-<!--  <li>  Chongqing Key Laboratory of Big Data and Intelligent Computing, CIGIT,  research student advised by-->
-<!--     <a href="https://people.ucas.edu.cn/~msshang?language=en" target="_blank">[Prof. Mingsheng Shang]</a>,  <a href="https://cigit.cas.cn/sourcedb/rcdw/202303/t20230313_6696802.html" target="_blank">[Prof. Lin Chen]</a> and <a href="https://www.linkedin.com/in/fanzhu1985/" target="_blank">[Prof. Fan Zhu]</a> 2020-2022. </li>-->
-<!-- <li> Institute of Mountain Hazards and Environment, CAS, research assistant advised by <a href="https://cist.cdut.edu.cn/info/1118/2541.htm" target="_blank"> [Prof. Xiaopeng Leng] </a>  and <a href="http://www.imde.cas.cn/yjsjy_118080/dsjs_2015/202009/t20200922_5703310.html" target="_blank">[Prof. Shaojie Zhang] </a> 2019-2020. </li>-->
-<!--&lt;!&ndash;<li> Chengdu University of Technology Intelligent and Energy (Chengdu) Co., Ltd, research assistant advised by <a href="https://cist.cdut.edu.cn/info/1118/2541.htm" target="_blank"> [Dr. Xiaopeng Leng] </a>  and <a href="https://cist.cdut.edu.cn/info/1118/2381.htm" target="_blank">[Dr. Ou ou] </a> 2017-2018. </li>&ndash;&gt;-->
-<!--<br>-->
-
-<!--<h3>Current Students Co-supervision/Collaboration</h3>-->
-<!--<li>Yutong Chen: PhD at UCAS with Prof. Guansong Pang, 09/2023-, time series anomaly detection (ECML PKDDx1)</li>-->
-<!-- <li>Guolei Zeng: PhD at Oxford with Prof. Guansong Pang, 06/2024-, graph anomaly detection</li>-->
-<!-- <li>Guoguo Ai: PhD at NJUST with Prof. Guansong Pang, 11/2024-, graph representation learning</li>-->
-<!--<li>Ye Su: MS at UCAS with Assistant Prof. Lin Chen, 06/2024-, time series prediction (BIBMx1)  </li>-->
-<!--<li>Ruikang An: MS at UCAS with Assistant Prof. Lin Chen, 3/2025-,  backdoor attack on GNN  </li>-->
-
-<!--<div class="divider line"></div>-->
-<!--<h3>Former Students Co-supervision/Collaboration</h3>-->
-<!-- <li>Haifu Ye: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-04/2025, video anomaly detection </li>-->
-<!--<li>Hongbin Liang: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-07/2024, pedestrian crossing intent prediction (ICONIPx1)</li>-->
-<!-- <li>Ruhui Zhang: PhD at CUPT with Assistant Prof. Lin Chen, 10/2024-01/2025,  multi-label recognition (ICMEx1)</li>-->
-
-
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
