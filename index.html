@@ -1,5 +1,247 @@
-  .left img {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hezhe Qiao's Website</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* Header 样式 */
+        header {
+            width: 100%;
+            background: linear-gradient(90deg, #3949ab, #1a237e);
+            color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo a {
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo a:hover {
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            font-size: 18px;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after,
+        nav .current a::after {
+            width: 100%;
+        }
+
+        /* 头像 + 简介 样式 */
+        .profile {
+            max-width: 1200px;
+            width: 95%;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .profile .left img {
+            width: 280px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .profile .right {
+            margin-left: 40px;
+            flex: 1;
+        }
+
+        .profile .right p,
+        .profile .right a {
+            margin-bottom: 10px;
+        }
+
+        .profile .right a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .profile .right a:hover {
+            text-decoration: underline;
+        }
+
+        /* 主内容区 */
+        .content {
+            max-width: 1200px;
+            width: 95%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        h3 {
+            font-size: 26px;
+            color: #002D72;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        p, li {
+            font-size: 18px;
+        }
+
+        .divider.line {
+            border-top: 1px solid #ccc;
+            margin: 30px 0;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #FF4D50;
+            font-weight: bold;
+        }
+
+        /* 响应式 */
+        @media screen and (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile .right {
+                margin-left: 0;
+                margin-top: 30px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">Hezhe Qiao (乔贺辙)</a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="publication_primary.html">Publications</a></li>
+                    <li><a href="group.html">Group</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <div class="profile">
+        <div class="left">
+            <img src="image/profile.jpg" alt="Profile Picture">
+        </div>
+        <div class="right">
+            <p><strong>PhD Student</strong><br>
+                <a href="https://scis.smu.edu.sg/" target="_blank">School of Computing and Information Systems</a><br>
+                <a href="https://www.smu.edu.sg/" target="_blank">Singapore Management University</a>
+            </p>
+            <p><strong>Email:</strong><br>
+                hezheqiao.2022\[at\]phdcs.smu.edu.sg<br>
+                hezheqiao[at]gmail.com
+            </p>
+            <p>
+                &bull; <a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+                &bull; <a href="https://github.com/fengduqianhe" target="_blank">GitHub</a>
+                &bull; <a href="https://twitter.com/qiaohezhe" target="_blank">Twitter</a>
+                &bull; <a href="https://www.linkedin.com/in/hezhe-qiao-83761b247/" target="_blank">LinkedIn</a>
+            </p>
+            <p><strong>Office:</strong><br>
+                SMU School of Computing and Information Systems, Singapore 178902
+            </p>
+        </div>
+    </div>
 
 <div class="divider line"></div>
 
