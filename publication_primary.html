@@ -190,6 +190,55 @@
                 padding: 20px; /* 小屏时稍微减小内边距 */
             }
         }
+
+        /* --- Mobile patches for Publications page --- */
+
+/* 主容器更灵活 */
+.content{
+  max-width:1200px;
+  width:min(95%,1200px);
+  margin:24px auto;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  padding:clamp(16px,2.2vw,32px);
+}
+
+/* 顶部导航在小屏可折叠 */
+.menu-toggle{ display:none; }
+@media (max-width: 960px){
+  .header-inner{ gap:12px; }
+  .menu-toggle{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#fff; color:#3949ab; border:0; border-radius:10px;
+    padding:8px 12px; font-weight:600; cursor:pointer;
+  }
+  nav ul{
+    flex-direction:column; gap:12px;
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+  }
+  nav ul.show{ max-height:320px; margin-top:8px; }
+}
+
+/* 表格在窄屏堆叠成卡片 */
+@media (max-width: 720px){
+  table{ border-spacing:0 12px; }
+  table tbody tr{
+    display:block; padding:12px; margin:10px 0;
+    border-radius:12px; background:#fff;
+    box-shadow:0 1px 6px rgba(0,0,0,.06);
+  }
+  table tbody tr td{
+    display:block; width:100%; padding:6px 0;
+  }
+  table tbody tr td:first-child{
+    font-weight:700; margin-bottom:4px; white-space:normal; width:auto;
+  }
+}
+
+/* 文本与标题适配 */
+h3{ font-size:clamp(20px,1.6vw,26px); }
+body{ font-size:clamp(16px,1.05vw + 14px,18px); line-height:1.75; }
+
     </style>
 </head>
 <body>
@@ -208,6 +257,16 @@
                 </ul>
             </nav>
         </div>
+
+        <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
+<nav>
+  <ul id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li class="current"><a href="publication_primary.html">Publications</a></li>
+    <li><a href="group.html">Group</a></li>
+  </ul>
+</nav>
+
     </header>
 
 <div class="content">
@@ -546,5 +605,14 @@
 <!--      </tbody></table>-->
 
 
+<script>
+function toggleMenu(){
+  const menu = document.getElementById('nav-menu');
+  const btn = document.querySelector('.menu-toggle');
+  menu.classList.toggle('show');
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!expanded));
+}
+</script>
 
 <grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
