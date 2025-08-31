@@ -1,618 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hezhe Qiao's Website</title>
-    <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a237e" />
+  <title>Hezhe Qiao's Website — Publications</title>
+  <style>
+    :root{
+      --bg:#f7f7f7; --card:#fff; --text:#333; --brand1:#3949ab; --brand2:#1a237e;
+      --link:#1a73e8; --accent:#FF4D50; --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.06);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family: system-ui,-apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--text); line-height:1.75; font-size:clamp(16px,1.05vw+14px,18px)}
+    a{color:var(--link); text-decoration:none} a:hover{text-decoration:underline}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            line-height: 1.8;
-            font-size: 18px;
-            padding: 20px; /* 页面整体留白，防止顶边 */
-        }
+    /* Header */
+    header{position:sticky; top:0; z-index:999; background:linear-gradient(90deg,var(--brand1),var(--brand2)); color:#fff; box-shadow:0 2px 8px rgba(0,0,0,.15)}
+    .header-inner{max-width:1200px; margin:0 auto; padding:14px 16px; display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center}
+    .logo a{color:#fff; font-size:clamp(20px,2.2vw,28px); font-weight:700}
 
-        /* Header 样式 */
-        header {
-            width: 100%;
-            background: linear-gradient(90deg, #3949ab, #1a237e);
-            color: #fff;
-            padding: 20px 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
+    .menu-toggle{display:none}
+    nav ul{display:flex; gap:24px; list-style:none; margin:0; padding:0}
+    nav a{color:#fff; position:relative; padding:4px 2px}
+    nav a::after{content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0; background:#fff; transition:width .25s ease}
+    nav a:hover::after, nav .current a::after{width:100%}
 
-        .header-inner {
-            max-width: 1600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    /* Containers */
+    .content{max-width:1200px; width:min(95%,1200px); margin:24px auto; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:clamp(16px,2.2vw,32px)}
+    h3{font-size:clamp(20px,1.6vw,26px); color:#002D72; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin:28px 0 16px}
+    h4{margin:6px 0 18px; color:#555; font-weight:500}
+    .divider{border-top:1px solid #e5e7eb; margin:20px 0}
+    .highlight{color:var(--accent); font-weight:700}
 
-        .logo a {
-            color: #fff;
-            font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
+    /* Publication tables -> responsive */
+    table{width:100%; border-collapse:separate; border-spacing:10px 8px}
+    td{vertical-align:top; padding:5px}
+    td:first-child{width:140px; font-weight:700; white-space:nowrap}
 
-        .logo a:hover {
-            opacity: 0.8;
-        }
+    /* Stack rows on narrow screens */
+    @media (max-width: 720px){
+      td:first-child{width:auto}
+      /* make each TR a card */
+      table tbody tr{display:block; padding:12px; border-radius:12px; box-shadow:0 1px 6px rgba(0,0,0,.06); background:#fff; margin:10px 0}
+      table tbody tr td{display:block; width:100%; padding:6px 0}
+      table{border-spacing:0 12px}
+    }
 
-        nav ul {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
+    /* Mobile nav */
+    @media (max-width: 960px){
+      .menu-toggle{display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--brand1); border:0; border-radius:10px; padding:8px 12px; font-weight:600; cursor:pointer}
+      nav ul{flex-direction:column; gap:12px; max-height:0; overflow:hidden; transition:max-height .3s ease}
+      nav ul.show{max-height:320px; margin-top:8px}
+    }
 
-        nav a {
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0%;
-            height: 2px;
-            background: #fff;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after,
-        nav .current a::after {
-            width: 100%;
-        }
-
-        /* 头像 + 简介 样式 */
-        .profile, .content {
-            max-width: 1200px;
-            width: 95%;
-            margin: 40px auto;
-            padding: 30px 40px; /* 重点：左右多留空隙 */
-            background-color: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .profile .left img {
-            width: 280px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        .profile .right {
-            margin-left: 40px;
-            flex: 1;
-        }
-
-        .profile .right p,
-        .profile .right a {
-            margin-bottom: 10px;
-        }
-
-        .profile .right a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-
-        .profile .right a:hover {
-            text-decoration: underline;
-        }
-
-        h3 {
-            font-size: 26px;
-            color: #002D72;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
-
-        p, li {
-            font-size: 18px;
-        }
-
-        .divider.line {
-            border-top: 1px solid #ccc;
-            margin: 30px 0;
-        }
-
-        a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .highlight {
-            color: #FF4D50;
-            font-weight: bold;
-        }
-
-        /* 响应式 */
-        @media screen and (max-width: 768px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile .right {
-                margin-left: 0;
-                margin-top: 30px;
-            }
-
-            .profile, .content {
-                padding: 20px; /* 小屏时稍微减小内边距 */
-            }
-        }
-
-        /* --- Mobile patches for Publications page --- */
-
-/* 主容器更灵活 */
-.content{
-  max-width:1200px;
-  width:min(95%,1200px);
-  margin:24px auto;
-  border-radius:16px;
-  box-shadow:0 8px 24px rgba(0,0,0,.06);
-  padding:clamp(16px,2.2vw,32px);
-}
-
-/* 顶部导航在小屏可折叠 */
-.menu-toggle{ display:none; }
-@media (max-width: 960px){
-  .header-inner{ gap:12px; }
-  .menu-toggle{
-    display:inline-flex; align-items:center; gap:8px;
-    background:#fff; color:#3949ab; border:0; border-radius:10px;
-    padding:8px 12px; font-weight:600; cursor:pointer;
-  }
-  nav ul{
-    flex-direction:column; gap:12px;
-    max-height:0; overflow:hidden; transition:max-height .3s ease;
-  }
-  nav ul.show{ max-height:320px; margin-top:8px; }
-}
-
-/* 表格在窄屏堆叠成卡片 */
-@media (max-width: 720px){
-  table{ border-spacing:0 12px; }
-  table tbody tr{
-    display:block; padding:12px; margin:10px 0;
-    border-radius:12px; background:#fff;
-    box-shadow:0 1px 6px rgba(0,0,0,.06);
-  }
-  table tbody tr td{
-    display:block; width:100%; padding:6px 0;
-  }
-  table tbody tr td:first-child{
-    font-weight:700; margin-bottom:4px; white-space:normal; width:auto;
-  }
-}
-
-/* 文本与标题适配 */
-h3{ font-size:clamp(20px,1.6vw,26px); }
-body{ font-size:clamp(16px,1.05vw + 14px,18px); line-height:1.75; }
-
-    </style>
+    @media (prefers-reduced-motion: reduce){ nav a::after{transition:none} }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><a href="index.html">Hezhe Qiao (乔贺辙)</a></div>
+      <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="publication_primary.html">Publications</a></li>
+          <li><a href="group.html">Group</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header>
-        <div class="header-inner">
-            <div class="logo">
-                <a href="index.html">Hezhe Qiao (乔贺辙)</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="current"><a href="publication_primary.html">Publications</a></li>
-                    <li><a href="group.html">Group</a></li>
-                </ul>
-            </nav>
-        </div>
+  <main class="content">
+    <div id="main">
+      <div class="inner">
+        <h3><span style="color:#6E402E">Refereed Publications</span> (<a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener">Google Scholar</a>)</h3>
+        <h4>Please see my Google Scholar or <a href="publications.html">here</a> for full publication list. (* Co-first author, ** Corresponding author)</h4>
 
-        <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
-<nav>
-  <ul id="nav-menu">
-    <li><a href="index.html">Home</a></li>
-    <li class="current"><a href="publication_primary.html">Publications</a></li>
-    <li><a href="group.html">Group</a></li>
-  </ul>
-</nav>
+        <h3><b>Tutorial</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span style="color:#1a73e8;font-weight:700">IJCAI'25</span></td>
+              <td>
+                Deep Learning for Graph Anomaly Detection
+                <a href="https://sites.google.com/view/ijcai-tutorial-on-ad/home" target="_blank" rel="noopener"><small>[Website]</small></a>
+                <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection?tab=readme-ov-file" target="_blank" rel="noopener"><small>[Project]</small></a>
+                <a href="https://drive.google.com/file/d/17qbeiLvx9r8bf-cmrO4vhKBYSHaRcZWO/view?usp=drive_link" target="_blank" rel="noopener"><small>[Slides]</small></a><br />
+                <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-    </header>
+        <h3><b>Preprints</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                Semi-supervised Graph Anomaly Detection via Robust Homophily Learning (2025)
+                <a href="https://arxiv.org/abs/2506.15448" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="#" target="_blank" rel="noopener"><small>[Code]</small></a><br />
+                Guoguo Ai*, <b>Hezhe Qiao*</b>, Hui Yan, Guansong Pang
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                Toward Generalist Semi-supervised Regression via Decoupled Representation Distillation (2025)
+                <a href="https://arxiv.org/abs/2508.14082" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="#" target="_blank" rel="noopener"><small>[Code]</small></a><br />
+                Ye Su*, <b>Hezhe Qiao*</b>, Wei Huang, Lin Chen
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-<div class="content">
-        <!-- MAIN CONTENT START -->
-        <div id="main">
-            <div class="inner">
+        <h3><b>2025</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span style="color:#1a73e8;font-weight:700">TKDE'25</span></td>
+              <td>
+                Deep Graph Anomaly Detection: A Survey and New Perspectives
+                <a href="https://arxiv.org/abs/2409.09957" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/tree/main" target="_blank" rel="noopener"><small>[Code]</small></a><br />
+                <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang
+              </td>
+            </tr>
+            <tr>
+              <td><span style="color:#1a73e8;font-weight:700">KDD'25</span></td>
+              <td>
+                Graph Foundation Model for Zero/Few-shot Anomaly Detection
+                <a href="https://arxiv.org/pdf/2502.09254" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/AnomalyGFM" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://hezheqiao2022.github.io/papers/KDD2025_slides.pdf" target="_blank" rel="noopener"><small>[Slides]</small></a><br />
+                <b>Hezhe Qiao*</b>, Chaoxi Niu*, Ling Chen, Guansong Pang
+              </td>
+            </tr>
+            <tr>
+              <td><span style="color:#1a73e8;font-weight:700">IJCAI'25</span></td>
+              <td>
+                Zero-shot Generalist Graph Anomaly Detection with Unified Neighborhood Prompts
+                <a href="https://arxiv.org/pdf/2410.14886" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/UNPrompt" target="_blank" rel="noopener"><small>[Code]</small></a><br />
+                Chaoxi Niu*, <b>Hezhe Qiao*</b>, Changlu Chen, Ling Chen, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-       <h3><font size="5"><font color="#6E402E">Refereed Publications</font></font> (<a href="https://scholar.google.com/citations?user=bMjKCuEAAAAJ&hl=en&oi=ao" target="_blank"><font size="5">Google Scholar</font></a>)</h3>
-                <h4> Please see my Google Scholar or <a href="publications.html"> here </a> for full publication  list. (* Co-first author, ** Corresponding author) </h4>
+        <h3><b>2024</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span style="color:#1a73e8;font-weight:700">NeurIPS'24</span></td>
+              <td>
+                Generative Semi-supervised Graph Anomaly Detection
+                <a href="https://arxiv.org/pdf/2402.11887.pdf" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/GGAD" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://hezheqiao2022.github.io/papers/NeurIPS2024GGAD_slides.pdf" target="_blank" rel="noopener"><small>[Slides]</small></a><br />
+                <b>Hezhe Qiao</b>, Qingsong Wen, Xiaoli Li, Ee-Peng Lim, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
+        <h3><b>2023</b></h3>
+        <table>
+          <tbody>
+            <tr>
+              <td><span style="color:#1a73e8;font-weight:700">NeurIPS'23</span></td>
+              <td>
+                Truncated Affinity Maximization: One-class Homophily Modeling for Graph Anomaly Detection
+                <a href="http://arxiv.org/abs/2306.00006" target="_blank" rel="noopener"><small>[PDF]</small></a>
+                <a href="https://github.com/mala-lab/TAM-master" target="_blank" rel="noopener"><small>[Code]</small></a>
+                <a href="https://hezheqiao2022.github.io/papers/NeurIPS2023TAM_slides.pdf" target="_blank" rel="noopener"><small>[Slides]</small></a><br />
+                <b>Hezhe Qiao</b>, Guansong Pang
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
 
-
-   <h3><b>Tutorial</b></h3>
- <style>
-  #pubs1 table {
-    width: 100%;
-    border-spacing: 10px 8px;
-  }
-  #pubs1 td {
-    vertical-align: top;
-    padding: 5px;
-  }
-  #pubs1 td:first-child {
-    width: 140px;
-    font-weight: bold;
-  }
-</style>
-
-<div id="pubs1">
-  <table><tbody>
-
-       <tr>
-         <td><font color="blue">IJCAI'25</font></td>
-      <td>Deep Learning for Graph Anomaly Detection <a href="https://sites.google.com/view/ijcai-tutorial-on-ad/home" target="_blank"><font size="2">[Website]</font></a> <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection?tab=readme-ov-file" target="_blank"><font size="2">[Project]</font></a>
-          <a href="https://drive.google.com/file/d/17qbeiLvx9r8bf-cmrO4vhKBYSHaRcZWO/view?usp=drive_link" target="_blank"><font size="2">[Slides]</font></a><br>
-           <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang <br><br>
-      </td>
-    </tr>
-  </tbody></table>
-
-</div>
-
-                <h3><b>Preprints</b></h3>
-
-   <table><tbody>
-
-<!--          <tr>-->
-<!--        <td><font color="blue">  <br><br> </font></td>-->
-<!--        <td>Deep Graph Anomaly Detection: A Survey and New Perspectives  (2024)&nbsp; <a href="https://arxiv.org/abs/2409.09957" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/tree/main" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--           <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-          <tr>
-        <td><font color="blue">  <br><br> </font></td>
-        <td>Semi-supervised Graph Anomaly Detection via Robust Homophily Learning (2025)&nbsp; <a href="https://arxiv.org/abs/2506.15448" target="_blank"><font size="2">[PDF]</font></a> <a href="" target="_blank"><font size="2">[Code]</font></a><br>
-         Guoguo Ai*,  <b>Hezhe Qiao*</b>, Hui Yan, Guansong Pang <br><br>
-        </td>
-    </tr>
-
-        <tr>
-        <td><font color="blue">  <br><br> </font></td>
-        <td> Toward Generalist Semi-supervised Regression via Decoupled Representation Distillation  (2025)&nbsp; <a href="https://arxiv.org/abs/2508.14082" target="_blank"><font size="2">[PDF]</font></a> <a href="" target="_blank"><font size="2">[Code]</font></a><br>
-         Ye Su*,  <b>Hezhe Qiao*</b>, Wei Huang, Lin Chen <br><br>
-        </td>
-    </tr>
-
-
-
-  </tbody></table>
-
-
-<style>
-  #pubs table {
-    width: 100%;
-    border-spacing: 10px 8px;
-  }
-  #pubs td {
-    vertical-align: top;
-    padding: 5px;
-  }
-  #pubs td:first-child {
-    width: 140px;
-    font-weight: bold;
-  }
-</style>
-<div id="pubs">
-<h3><b>2025</b></h3>
-<table>
-  <tbody>
-             <tr>
-         <td><font color="blue">TKDE'25</font></td>
-             <td>Deep Graph Anomaly Detection: A Survey and New Perspectives  (2024)&nbsp; <a href="https://arxiv.org/abs/2409.09957" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/mala-lab/Awesome-Deep-Graph-Anomaly-Detection/tree/main" target="_blank"><font size="2">[Code]</font></a><br>
-           <b>Hezhe Qiao</b>, Hanghang Tong, Bo An, Irwin King, Charu Aggarwal, Guansong Pang <br><br>
-        </td>
-    </tr>
-
-
-             <tr>
-         <td><font color="blue">KDD'25</font></td>
-         <td>Graph Foundation Model for Zero/Few-shot Anomaly Detection (2025)&nbsp; <a href=" https://arxiv.org/pdf/2502.09254" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/mala-lab/AnomalyGFM" target="_blank"><font size="2">[Code]</font></a>
-                <a href="https://hezheqiao2022.github.io/papers/KDD2025_slides.pdf" target="_blank"><font size="2">[Slides]</font></a><br>
-
-           <b>Hezhe Qiao*</b>, Chaoxi Niu*, Ling Chen, Guansong Pang <br><br>
-        </td>
-    </tr>
-
-
-<!--           <tr>-->
-<!--         <td><font color="blue">ICML'25</font></td>-->
-<!--      <td> GrokFormer: Graph Fourier Kolmogorov-Arnold Transformers (2024)&nbsp; <a href="https://arxiv.org/abs/2411.17296" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/GGA23/GrokFormer" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--           Guoguo Ai, Guansong Pang, <b>Hezhe Qiao</b>, Yuan Gao, Hui Yan <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-
-
-      <tr>
-         <td><font color="blue">IJCAI'25</font></td>
-      <td>
-       Zero-shot Generalist Graph Anomaly Detection with Unified Neighborhood Prompts
-        <a href="https://arxiv.org/pdf/2410.14886" target="_blank"><font size="2">[PDF]</font></a>
-        <a href="https://github.com/mala-lab/UNPrompt" target="_blank"><font size="2">[Code]</font></a>
-        <br>
-          Chaoxi Niu*,  <b>Hezhe Qiao*</b>, Changlu Chen, Ling Chen, Guansong Pang <br><br>
-      </td>
-    </tr>
-
-<!--    <tr>-->
-<!--         <td><font color="blue">ICME'25 Oral</font></td>-->
-<!--      <td>-->
-<!--       Semantic-guided Representation Learning for Multi-Label Recognition-->
-<!--        <a href="https://arxiv.org/abs/2504.03801" target="_blank"><font size="2">[PDF]</font></a>-->
-<!--        <a href="https://github.com/MVL-Lab/SigRL" target="_blank"><font size="2">[Code]</font></a>-->
-<!--        <br>-->
-<!--          Ruhui Zhang, <b>Hezhe Qiao**</b>, Pengcheng Xu, Mingsheng Shang, Lin Chen<br><br>-->
-<!--      </td>-->
-<!--    </tr>-->
-  </tbody>
-</table>
-
-<h3><b>2024</b></h3>
-<table>
-  <tbody>
-
-      <td><font color="blue">NeurIPS'24</font></td>
-      <td>
-        Generative Semi-supervised Graph Anomaly Detection
-        <a href="https://arxiv.org/pdf/2402.11887.pdf" target="_blank"><font size="2">[PDF]</font></a>
-        <a href="https://github.com/mala-lab/GGAD" target="_blank"><font size="2">[Code]</font></a>
-        <a href="https://hezheqiao2022.github.io/papers/NeurIPS2024GGAD_slides.pdf" target="_blank"><font size="2">[Slides]</font></a><br>
-        <b>Hezhe Qiao</b>, Qingsong Wen, Xiaoli Li, Ee-Peng Lim, Guansong Pang<br><br>
-      </td>
-    </tr>
-
-<!--    <tr>-->
-<!--      <td><font color="blue">JDSA'24</font></td>-->
-<!--      <td>-->
-<!--        Deep Learning for Hate Speech Detection: A Comparative Study (2024)-->
-<!--        <a href="https://arxiv.org/abs/2202.09517" target="_blank"><font size="2">[PDF]</font></a>-->
-<!--        <a href="https://github.com/jmjmalik22/Hate-Speech-Detection" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--         Jitendra Singh Malik, <b>Hezhe Qiao*</b>, Guansong Pang, Anton van den Hengel<br><br>-->
-<!--      </td>-->
-<!--    </tr>-->
-  </tbody>
-</table>
-
-<h3><b>2023</b></h3>
-<table>
-  <tbody>
-    <tr>
-      <td><font color="blue">NeurIPS'23</font></td>
-      <td>
-        Truncated Affinity Maximization: One-class Homophily Modeling for Graph Anomaly Detection
-        <a href="http://arxiv.org/abs/2306.00006" target="_blank"><font size="2">[PDF]</font></a>
-        <a href="https://github.com/mala-lab/TAM-master" target="_blank"><font size="2">[Code]</font></a>
-        <a href="https://hezheqiao2022.github.io/papers/NeurIPS2023TAM_slides.pdf" target="_blank"><font size="2">[Slides]</font></a><br>
-        <b>Hezhe Qiao</b>, Guansong Pang<br><br>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-
-</div>
-</div>
-
-
-<!--<h3><b>2022 and before</b></h3>-->
-<!--<table>-->
-<!--  <tbody>-->
-<!--      <tr>-->
-<!--      <td><font color="blue">Frontiers in Aging Neuroscience'22</font></td>-->
-<!--      <td>-->
-<!--        Alzheimer's Disease Diagnosis With Brain Structural MRI Using Multiview-Slice Attention and 3D Convolution Neural Network (2022)-->
-<!--        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9088013/" target="_blank"><font size="2">[PDF]</font></a><br>-->
-<!--        Lin Chen, <b>Hezhe Qiao</b>, Fan Zhu<br><br>-->
-<!--      </td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td><font color="blue">CMPB'22</font></td>-->
-<!--      <td>-->
-<!--        Ranking convolutional neural network for Alzheimer’s disease mini-mental state examination prediction at multiple time-points (2022)-->
-<!--        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169260721005770" target="_blank"><font size="2">[PDF]</font></a>-->
-<!--        <a href="https://github.com/fengduqianhe/ADrankCNN-master" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--        <b>Hezhe Qiao</b>, Lin Chen, Fan Zhu<br><br>-->
-<!--      </td>-->
-<!--    </tr>-->
-
-<!--    <tr>-->
-<!--      <td><font color="blue">EMBC'21</font></td>-->
-<!--      <td>-->
-<!--        A fusion of multi-view 2D and 3D convolution neural network based MRI for Alzheimer’s disease diagnosis-->
-<!--        <a href="https://ieeexplore.ieee.org/abstract/document/9629923" target="_blank"><font size="2">[PDF]</font></a>-->
-<!--        <a href="https://github.com/fengduqianhe/ADMultiView" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--        <b>Hezhe Qiao</b>, Lin Chen, Fan Zhu<br><br>-->
-<!--      </td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td><font color="blue">CMPB'21</font></td>-->
-<!--      <td>-->
-<!--        Early Alzheimer’s disease diagnosis with the contrastive loss using paired structural MRIs (2021)-->
-<!--        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169260721003564" target="_blank"><font size="2">[PDF]</font></a>-->
-<!--        <a href="https://github.com/fengduqianhe/ADComparative" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--        <b>Hezhe Qiao</b>, Lin Chen, Zi Ye, Fan Zhu<br><br>-->
-<!--      </td>-->
-<!--    </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
-
-
-<!--    <h3><b>2025</b></h3>-->
-<!--                       <table><tbody>-->
-<!--              <tr>-->
-<!--        <td><font color="blue"> ICME'25</font></td>-->
-<!--        <td>Semantic-guided Representation Learning for Multi-Label Recognition <a href="https://arxiv.org/pdf/2504.03801" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/MVL-Lab/SigRL" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--           Ruhui Zhang, <b>Hezhe Qiao**</b>, Pengcheng Xu, Mingsheng Shang, Lin Chen <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-<!--                                     <tr>-->
-<!--        <td><font color="blue">TMC'25 </font></td>-->
-<!--      <td>Towards Diverse Tiny-Model Selection for Microcontrollers (2025)&nbsp; <a href="https://www.computer.org/csdl/journal/tm/5555/01/10970460/260SkVjhw40" target="_blank"><font size="2">[PDF]</font></a> <a href="" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--         Xiao Ma , Shengfeng He,   <b>Hezhe Qiao</b>, Dong Ma  <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-<!--  </tbody></table>-->
-
-<!--    <h3><b>2024</b></h3>-->
-<!--                       <table><tbody>-->
-<!--       <tr>-->
-<!--        <td><font color="blue"> BIBM'24</font></td>-->
-<!--        <td>Temporal Gaussian Copula For Clinical Multivariate Time Series Data Interpolation&nbsp; <a href="https://arxiv.org/abs/2504.02317" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/chenlincigit/TGC-MTS" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--           Ye Su, <b>Hezhe Qiao</b>, Di Wu, Yuwen Chen, Lin Chen <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-<!--             <tr>-->
-<!--        <td><font color="blue"> NeurIPS'24  </font></td>-->
-<!--        <td>Generative Semi-supervised Graph Anomaly Detection &nbsp; <a href="https://arxiv.org/pdf/2402.11887.pdf" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/mala-lab/GGAD" target="_blank"><font size="2">[Code]</font></a> <a href="https://hezheqiao2022.github.io/papers/NeurIPS2024GGAD_slides.pdf" target="_blank"><font size="2">[Slides]</font></a><br>-->
-<!--           <b>Hezhe Qiao</b>, Qingsong Wen, Xiaoli Li, Ee-Peng Lim, Guansong Pang <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--                       <tr>-->
-<!--        <td><font color="blue">ICONIP'24 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--            <td>Temporal-contextual Event Learning for Pedestrian Crossing Intent Prediction &nbsp; <a href="https://hezheqiao2022.github.io/papers/TCL_ICONIP24.pdf" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/dadaguailhb/TCL" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--           Hongbin Liang*, <b>Hezhe Qiao*</b>, Wei Huang, Qizhou Wang, Mingsheng Shang, Lin Chen  <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-<!--                    <tr>-->
-<!--        <td><font color="blue">ECML PKDD'24 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--              <td>Self-supervised Temporal and Spatial Normality Learning for Time Series Anomaly Detection <a href="https://arxiv.org/pdf/2406.19770" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/mala-lab/STEN" target="_blank"><font size="2">[Code]</font></a><br>-->
-
-<!--                  Yutong Chen , Hongzuo Xu , Guansong Pang,  <b>Hezhe Qiao</b>, Yuan Zhou,  Mingsheng Shang <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-
-<!--             <tr>-->
-<!--        <td><font color="blue">PerCom'24 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--              <td>DITMoS:Delving into Diverse Tiny-Model Selection on Microcontrollers <a href="https://arxiv.org/abs/2403.09035" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/TheMaXiao/DiTMoS" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--                  Xiao Ma , Shengfeng He,   <b>Hezhe Qiao</b>,  Dong Ma  <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--                   <tr>-->
-<!--        <td><font color="blue">JDSA'24&nbsp;<br><br> </font></td>-->
-<!--      <td>Deep Learning for Hate Speech Detection: A Comparative Study  (2024)&nbsp; <a href="https://arxiv.org/abs/2202.09517" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/jmjmalik22/Hate-Speech-Detection" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--           <b>Hezhe Qiao*</b>, Jitendra  Singh Malik*, Guansong Pang, Anton van den Hengel <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--  </tbody></table>-->
-
-
-<!--     <h3><b>2023</b></h3>-->
-<!--       <table><tbody>-->
-<!--          <tr>-->
-<!--        <td><font color="blue">NeurIPS'23 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--              <td> Truncated Affinity Maximization: One-class Homophily Modeling for Graph Anomaly Detection  <a href="http://arxiv.org/abs/2306.00006" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/mala-lab/TAM-master" target="_blank"><font size="2">[Code]</font></a> <a href="https://hezheqiao2022.github.io/papers/NeurIPS2023TAM_slides.pdf" target="_blank"><font size="2">[Slides]</font></a><br>-->
-<!--                  <b>Hezhe Qiao</b>, Guansong Pang  <br><br>-->
-
-<!--        </td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--  </tbody></table>-->
-
-
-<!--    <h3><b>2022 and before</b></h3>-->
-<!--                <table><tbody>-->
-
-<!--                               <tr>-->
-<!--        <td><font color="blue">CMPB'22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--        <td> Ranking convolutional neural network for Alzheimer’s disease mini-mental state examination prediction at multiple time-points (2022)&nbsp; <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169260721005770" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/fengduqianhe/ADrankCNN-master" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--            <b>Hezhe Qiao</b>, Lin Chen, Fan Zhu <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-
-<!--                          <tr>-->
-<!--        <td><font color="blue">Frontiers in <br> Aging <br>Neuroscience'22 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--        <td> Alzheimer's Disease Diagnosis With Brain Structural MRI Using Multiview-Slice Attention and 3D Convolution Neural Network (2022)&nbsp; <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9088013/" target="_blank"><font size="2">[PDF]</font></a><br>-->
-<!--           Lin Chen,  <b>Hezhe Qiao</b>, Fan Zhu <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--        <td><font color="blue">EMBC'21 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--        <td> A fusion of multi-view 2D and 3D convolution neural network based MRI for Alzheimer’s disease diagnosis &nbsp; <a href="https://ieeexplore.ieee.org/abstract/document/9629923" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/fengduqianhe/ADMultiView" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--            <b>Hezhe Qiao</b>, Lin Chen, Fan Zhu <br><br>-->
-<!--        </td>-->
-<!--                      <tr>-->
-<!--        <td><font color="blue">CMPB'21 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br> </font></td>-->
-<!--        <td> Early Alzheimer’s disease diagnosis with the contrastive loss using paired structural MRIs (2021)&nbsp; <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169260721003564" target="_blank"><font size="2">[PDF]</font></a> <a href="https://github.com/fengduqianhe/ADComparative" target="_blank"><font size="2">[Code]</font></a><br>-->
-<!--            <b>Hezhe Qiao</b>, Lin Chen, Zi Ye, Fan Zhu <br><br>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--    </tr>-->
-<!--      </tbody></table>-->
-
-
-<script>
-function toggleMenu(){
-  const menu = document.getElementById('nav-menu');
-  const btn = document.querySelector('.menu-toggle');
-  menu.classList.toggle('show');
-  const expanded = btn.getAttribute('aria-expanded') === 'true';
-  btn.setAttribute('aria-expanded', String(!expanded));
-}
-</script>
-
-<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+  <script>
+    function toggleMenu(){
+      const menu=document.getElementById('nav-menu');
+      const btn=document.querySelector('.menu-toggle');
+      menu.classList.toggle('show');
+      const expanded=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    }
+  </script>
+</body>
+</html>
