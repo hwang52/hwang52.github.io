@@ -1,235 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hezhe Qiao's Website</title>
-    <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a237e" />
+  <title>Hezhe Qiao's Website — Group</title>
+  <style>
+    :root{
+      --bg:#f7f7f7; --card:#fff; --text:#333; --brand1:#3949ab; --brand2:#1a237e; --link:#1a73e8;
+      --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.06); --shadow-sm:0 2px 8px rgba(0,0,0,.1);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:var(--bg); color:var(--text); line-height:1.8; font-size:clamp(16px,1.05vw+14px,18px)}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            line-height: 1.8;
-            font-size: 18px;
-            padding: 20px; /* 页面整体留白，防止顶边 */
-        }
+    /* Header */
+    header{position:sticky; top:0; z-index:999; background:linear-gradient(90deg,var(--brand1),var(--brand2)); color:#fff; box-shadow:var(--shadow-sm)}
+    .header-inner{max-width:1200px; margin:0 auto; padding:16px 20px; display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center}
+    .logo a{color:#fff; font-weight:700; font-size:clamp(20px,2.2vw,28px)}
 
-        /* Header 样式 */
-        header {
-            width: 100%;
-            background: linear-gradient(90deg, #3949ab, #1a237e);
-            color: #fff;
-            padding: 20px 40px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-        }
+    .menu-toggle{display:none}
+    nav ul{display:flex; gap:24px; list-style:none; margin:0; padding:0}
+    nav a{color:#fff; position:relative; padding-bottom:4px}
+    nav a::after{content:""; position:absolute; left:0; bottom:0; height:2px; width:0; background:#fff; transition:width .25s ease}
+    nav a:hover::after, nav .current a::after{width:100%}
 
-        .header-inner {
-            max-width: 1600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    /* Content */
+    .content{max-width:1200px; width:min(95%,1200px); margin:24px auto; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:clamp(16px,2.2vw,32px)}
+    h3{font-size:clamp(20px,1.6vw,26px); color:#002D72; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin:28px 0 16px}
+    .divider{border-top:1px solid #e5e7eb; margin:20px 0}
 
-        .logo a {
-            color: #fff;
-            font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
+    /* People lists */
+    .people-list{list-style:none; padding:0; margin:14px 0 0}
+    .people-list li{background:#fff; border:1px solid #eef2f7; border-radius:12px; padding:14px 16px; margin:10px 0; box-shadow:0 1px 6px rgba(0,0,0,.05)}
 
-        .logo a:hover {
-            opacity: 0.8;
-        }
+    /* Two-column on larger screens */
+    @media (min-width: 900px){
+      .people-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+      .people-grid .people-list{margin:0}
+      .people-grid .people-list li{margin:0}
+    }
 
-        nav ul {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
+    /* Mobile nav */
+    @media (max-width: 960px){
+      .menu-toggle{display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--brand1); border:0; border-radius:10px; padding:8px 12px; font-weight:600; cursor:pointer}
+      nav ul{flex-direction:column; gap:12px; max-height:0; overflow:hidden; transition:max-height .3s ease}
+      nav ul.show{max-height:320px; margin-top:8px}
+    }
 
-        nav a {
-            color: #fff;
-            font-size: 18px;
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0%;
-            height: 2px;
-            background: #fff;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after,
-        nav .current a::after {
-            width: 100%;
-        }
-
-        /* 头像 + 简介 样式 */
-        .profile, .content {
-            max-width: 1200px;
-            width: 95%;
-            margin: 40px auto;
-            padding: 30px 40px; /* 重点：左右多留空隙 */
-            background-color: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .profile .left img {
-            width: 280px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        .profile .right {
-            margin-left: 40px;
-            flex: 1;
-        }
-
-        .profile .right p,
-        .profile .right a {
-            margin-bottom: 10px;
-        }
-
-        .profile .right a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-
-        .profile .right a:hover {
-            text-decoration: underline;
-        }
-
-        h3 {
-            font-size: 26px;
-            color: #002D72;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
-
-        p, li {
-            font-size: 18px;
-        }
-
-        .divider.line {
-            border-top: 1px solid #ccc;
-            margin: 30px 0;
-        }
-
-        a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .highlight {
-            color: #FF4D50;
-            font-weight: bold;
-        }
-
-        /* 响应式 */
-        @media screen and (max-width: 768px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .profile {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile .right {
-                margin-left: 0;
-                margin-top: 30px;
-            }
-
-            .profile, .content {
-                padding: 20px; /* 小屏时稍微减小内边距 */
-            }
-        }
-    </style>
+    @media (prefers-reduced-motion: reduce){ nav a::after{transition:none} }
+  </style>
 </head>
-
-
- <!-- Header -->
-    <header>
-        <div class="header-inner">
-            <div class="logo">
-                <a href="index.html">Hezhe Qiao (乔贺辙)</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="publication_primary.html">Publications</a></li>
-                    <li class="current"><a href="group.html">Group</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <div class="content">
-      <h3>Current Students Co-supervision/Collaboration</h3>
-      <ul>
-                  <li>Hui He: PhD at BIT with Prof. Guansong Pang, 7/2025-, time series anomaly detection </li>
-        <li>Guoguo Ai: PhD at NJUST with Prof. Guansong Pang, 11/2024-, graph representation learning (ICMLx1)</li>
-                  <li>Guolei Zeng: PhD at Oxford with Prof. Guansong Pang, 06/2024-, graph anomaly detection </li>
-        <li>Ye Su: MS at UCAS with Assistant Prof. Lin Chen, 06/2024-, time series prediction (BIBMx1)</li>
-           <li>Yutong Chen: PhD at UCAS with Prof. Guansong Pang, 09/2023-, time series anomaly detection (ECML PKDDx1)</li>
-
-      </ul>
-
-      <div class="divider line"></div>
-
-      <h3>Former Students Co-supervision/Collaboration</h3>
-      <ul>
-        <li>Haifu Ye: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-04/2025, video anomaly detection</li>
-        <li>Hongbin Liang: MS at UCAS with Assistant Prof. Lin Chen, 03/2024-07/2024, pedestrian crossing intent prediction (ICONIPx1)</li>
-        <li>Ruhui Zhang: PhD at CUPT with Assistant Prof. Lin Chen, 10/2024-01/2025, multi-label recognition (ICME Oralx1)</li>
-      </ul>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo"><a href="index.html">Hezhe Qiao (乔贺辙)</a></div>
+      <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="publication_primary.html">Publications</a></li>
+          <li class="current"><a href="group.html">Group</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
+  </header>
+
+  <main class="content">
+    <section aria-label="Current Students Co-supervision/Collaboration">
+      <h3>Current Students Co-supervision/Collaboration</h3>
+      <ul class="people-list">
+        <li>Hui He: PhD at BIT with Prof. Guansong Pang, 7/2025–, time series anomaly detection.</li>
+        <li>Guoguo Ai: PhD at NJUST with Prof. Guansong Pang, 11/2024–, graph representation learning (ICML×1).</li>
+        <li>Guolei Zeng: PhD at Oxford with Prof. Guansong Pang, 06/2024–, graph anomaly detection.</li>
+        <li>Ye Su: MS at UCAS with Assistant Prof. Lin Chen, 06/2024–, time series prediction (BIBM×1).</li>
+        <li>Yutong Chen: PhD at UCAS with Prof. Guansong Pang, 09/2023–, time series anomaly detection (ECML PKDD×1).</li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <section aria-label="Former Students Co-supervision/Collaboration">
+      <h3>Former Students Co-supervision/Collaboration</h3>
+      <ul class="people-list people-grid">
+        <li>Haifu Ye: MS at UCAS with Assistant Prof. Lin Chen, 03/2024–04/2025, video anomaly detection.</li>
+        <li>Hongbin Liang: MS at UCAS with Assistant Prof. Lin Chen, 03/2024–07/2024, pedestrian crossing intent prediction (ICONIP×1).</li>
+        <li>Ruhui Zhang: PhD at CUPT with Assistant Prof. Lin Chen, 10/2024–01/2025, multi-label recognition (ICME Oral×1).</li>
+      </ul>
+    </section>
+  </main>
+
+  <script>
+    function toggleMenu(){
+      const menu=document.getElementById('nav-menu');
+      const btn=document.querySelector('.menu-toggle');
+      menu.classList.toggle('show');
+      const expanded=btn.getAttribute('aria-expanded')==='true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    }
+  </script>
 </body>
 </html>
