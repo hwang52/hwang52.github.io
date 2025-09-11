@@ -26,6 +26,9 @@
     nav a{color:#fff; position:relative; padding-bottom:4px}
     nav a::after{content:""; position:absolute; left:0; bottom:0; height:2px; width:0; background:#fff; transition:width .25s ease}
     nav a:hover::after, nav .current a::after{width:100%}
+      #nav-menu li a {
+  font-size: 18px; /* 你可以调成 20px、22px 等更大 */
+ }
 
     /* Content */
     .content{max-width:1200px; width:min(95%,1200px); margin:24px auto; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:clamp(16px,2.2vw,32px)}
