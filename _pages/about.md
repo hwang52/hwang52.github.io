@@ -18,12 +18,23 @@ My research focuses on Federated Learning and Visual Anomaly Detection.
 
 Selected Publications
 ======
-- FedKG: Model-optimized Federated Learning for Local Client Training with Non-IID Private Data \\
-  *Huan Wang*, Lijuan Wang \\
+- FedDifRC: Unlocking the Potential of Text-to-Image Diffusion Models in Heterogeneous Federated Learning \\
+  **Huan Wang**, Haoran Li, Huaming Chen, Jun Yan, Jiahua Shi, Jun Shen \\
+  IEEE/CVF International Conference on Computer Vision (ICCV), CCF-A, 2025. \\
+  [[Paper](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_FedDifRC_Unlocking_the_Potential_of_Text-to-Image_Diffusion_Models_in_Heterogeneous_ICCV_2025_paper.html)] [[Code](https://github.com/hwang52/FedDifRC)]
+- FedSC: Federated Learning with Semantic-Aware Collaboration \\
+  **Huan Wang**, Haoran Li, Huaming Chen, Jun Yan, Jiahua Shi, Jun Shen \\
+  Proceedings of the 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining, CCF-A, 2025. \\
+  [[Paper](https://ieeexplore.ieee.org/abstract/document/11169609/)] [[Code](https://github.com/hwang52/FedSKC)]
+- FedSKC: Federated Learning with Non-IID Data via Structural Knowledge Collaboration \\
+  **Huan Wang**, Haoran Li, Huaming Chen, Jun Yan, Lijuan Wang, Jiahua Shi, Shiping Chen, Jun Shen \\
+  IEEE International Conference on Web Services, CCF-B, 2025. \\
+  [[Paper](https://dl.acm.org/doi/abs/10.1145/3711896.3736957)] [[Code](https://github.com/hwang52/FedSC)]
+- FedKG: Model-optimized Federated Learning for Local Client Training with Non-IID Data \\
+  **Huan Wang**, Lijuan Wang \\
   IEEE International Conference on Multimedia and Expo, CCF-B, 2022. \\
-  [Paper](https://ieeexplore.ieee.org/abstract/document/9816323/) & [Code](https://github.com/hwang52)
-- FedSKC: Federated Learning with Non-IID Data via Structural Knowledge Collaboration
-
+  [[Paper](https://ieeexplore.ieee.org/abstract/document/9816323/)] [[Code](https://github.com/hwang52)]
+  
 Getting started
 ======
 1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
