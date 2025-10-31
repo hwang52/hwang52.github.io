@@ -1,24 +1,19 @@
 ---
 permalink: /
-title: "Huan Wang (Chinese 王欢)"
+title: "Huan Wang"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-Second-year Ph.D. Student
+Short Bio
 ---
+Huan Wang (Chinese name is 王欢) is a second-year Ph.D. student in the School of Computing and Information Technology at the University of Wollongong, advised by Prof. [Jun Shen](https://scholars.uow.edu.au/jun-shen) and Prof. [Jun Yan](https://scholars.uow.edu.au/jun-yan). Previously, I received my master degree at Xidian University in 2023, advised by Prof. [Lijuan Wang](https://web.xidian.edu.cn/ljwang/index.html).
 
-School of Computing and Information Technology, University of Wollongong (UOW)
----
+My research focuses on Federated Learning and Visual Anomaly Detection!
 
-Email: hw226@uowmail.edu.au / huanwang1018@gmail.com
----
-
-This is the front page of a website that is powered by the [Academic Pages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the repository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. Incidentally, these same features make it a great template for anyone that needs to show off a professional template!
-
- You can fork [this template](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and Markdown files, add your own PDFs and other content, and have your own site for free, with no ads!
+(**Recent News**): Recently, I will soon be going to Singapore Management University (SMU) for a 12-month full-time research visit, advised by Prof. [Guansong Pang](https://sites.google.com/site/gspangsite).
 
 A data-driven personal website
 ======
