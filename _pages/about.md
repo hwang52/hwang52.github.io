@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Huan Wang (Chinese name is 王欢)"
+title: "Huan Wang (Chinese 王欢)"
 author_profile: true
 redirect_from: 
   - /about/
@@ -9,8 +9,10 @@ redirect_from:
 
 Second-year Ph.D. Student
 ---
+
 School of Computing and Information Technology, University of Wollongong (UOW)
 ---
+
 Email: hw226@uowmail.edu.au / huanwang1018@gmail.com
 ---
 
