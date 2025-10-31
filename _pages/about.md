@@ -7,6 +7,7 @@ redirect_from:
   - /about.html
 ---
 
+
 Short Bio
 ======
 Huan Wang (Chinese 王欢) is a second-year Ph.D. student in the School of Computing and Information Technology at the University of Wollongong, advised by Prof. [Jun Shen](https://scholars.uow.edu.au/jun-shen) and Prof. [Jun Yan](https://scholars.uow.edu.au/jun-yan). 
@@ -39,5 +40,5 @@ Selected Awards and Academic Service
 ======
 - Reviewer for Conference: ICLR, CVPR, NeurIPS, ICCV, KDD, WWW.
 - Reviewer for Journal: IEEE Transactions on Multimedia, Knowledge-based Systems, TNNLS.
-- ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD) 2025 Student Travel Award.
-- International Conference on Computer Vision (ICCV) 2025 Student Travel Award.
+- ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD) 2025 Student Travel Award [[LINK](https://kdd2025.kdd.org/call-for-student-travel-award-applications/)].
+- International Conference on Computer Vision (ICCV) 2025 Student Travel Award [[LINK](https://iccv.thecvf.com/Conferences/2025/BroadeningParticipation)].
