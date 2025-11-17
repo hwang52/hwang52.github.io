@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#1a237e" />
-  <title>Huan Wang's Website — Publications</title>
+  <title>Huan Wang's Website - Publications</title>
   <style>
     :root{
       --bg:#f7f7f7; --card:#fff; --text:#333; --brand1:#3949ab; --brand2:#1a237e;
@@ -40,11 +40,14 @@
     /* Publication tables -> responsive */
     table{width:100%; border-collapse:separate; border-spacing:10px 8px}
     td{vertical-align:top; padding:5px}
-    td:first-child{width:140px; font-weight:700; white-space:nowrap}
+    td:first-child{width:140px; font-weight:700; white-space:nowrap; vertical-align:middle; height:100%}
+    td:first-child .conf-info{display:flex; flex-direction:column; align-items:center; gap:8px; justify-content:center; min-height:100%}
+    td:first-child .conf-logo{max-width:120px; height:auto; display:block}
 
     /* Stack rows on narrow screens */
     @media (max-width: 720px){
-      td:first-child{width:auto}
+      td:first-child{width:auto; height:auto}
+      td:first-child .conf-info{min-height:auto}
       /* make each TR a card */
       table tbody tr{display:block; padding:12px; border-radius:12px; box-shadow:0 1px 6px rgba(0,0,0,.06); background:#fff; margin:10px 0}
       table tbody tr td{display:block; width:100%; padding:6px 0}
@@ -86,13 +89,18 @@
         <table>
           <tbody>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">AAAI'2026 (Oral)</span></td>
+              <td>
+                <div class="conf-info">
+                  <span style="color:#1a73e8;font-weight:700">AAAI'2026 (Oral)</span>
+                  <img src="image/aaai.png" alt="AAAI Logo" class="conf-logo" loading="lazy" decoding="async"/>
+                </div>
+              </td>
               <td>
                 <i>Towards Zero-Shot Diabetic Retinopathy Grading: Learning Generalized Knowledge via Prompt-Driven Matching and Emulating</i>
                 <a href="https://github.com/hwang52/ProMEDR" target="_blank" rel="noopener"><small>[PDF]</small></a>
                 <a href="https://github.com/hwang52/ProMEDR" target="_blank" rel="noopener"><small>[Code]</small></a><br />
                 <b>Huan Wang</b>, Haoran Li, Yuxin Lin, Huaming Chen, Jun Yan, Lijuan Wang, Jiahua Shi, Qihao Xu, Yongting Hu, Yong Xu, Jun Shen<br />
-                In <b>AAAI'26</b> (CCF-A, Core A*), to appear. Acceptance rate: 17.6% (4167/ 23680).
+                In <b>AAAI'26</b> (CCF-A, Core A*), to appear. Acceptance rate: 17.6% (4167 / 23680).
               </td>
             </tr>
           </tbody>
@@ -102,33 +110,48 @@
         <table>
           <tbody>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">ICCV'2025</span></td>
+              <td>
+                <div class="conf-info">
+                  <span style="color:#1a73e8;font-weight:700">ICCV'2025</span>
+                  <img src="image/iccv.png" alt="ICCV Logo" class="conf-logo" loading="lazy" decoding="async"/>
+                </div>
+              </td>
               <td>
                 <i>FedDifRC: Unlocking the Potential of Text-to-Image Diffusion Models in Heterogeneous Federated Learning</i>
                 <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_FedDifRC_Unlocking_the_Potential_of_Text-to-Image_Diffusion_Models_in_Heterogeneous_ICCV_2025_paper.html" target="_blank" rel="noopener"><small>[PDF]</small></a>
                 <a href="https://github.com/hwang52/FedDifRC" target="_blank" rel="noopener"><small>[Code]</small></a><br />
                 <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua Shi, Jun Shen<br />
-                In <b>ICCV'25</b> (CCF-A, Core A*), to appear. Acceptance rate: 24% (2698/11239).
+                In <b>ICCV'25</b> (CCF-A, Core A*), to appear. Acceptance rate: 24% (2698 / 11239).
               </td>
             </tr>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">KDD'2025</span></td>
+              <td>
+                <div class="conf-info">
+                  <span style="color:#1a73e8;font-weight:700">KDD'2025</span>
+                  <img src="image/kdd.png" alt="KDD Logo" class="conf-logo" loading="lazy" decoding="async"/>
+                </div>
+              </td>
               <td>
                 <i>FedSC: Federated Learning with Semantic-Aware Collaboration</i>
                 <a href="https://dl.acm.org/doi/abs/10.1145/3711896.3736957" target="_blank" rel="noopener"><small>[PDF]</small></a>
                 <a href="https://github.com/hwang52/FedSC" target="_blank" rel="noopener"><small>[Code]</small></a><br />
                 <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua Shi, Jun Shen<br />
-                In <b>KDD'25</b> (CCF-A, Core A*), to appear. Acceptance rate: 18.4% (365/1988).
+                In <b>KDD'25</b> (CCF-A, Core A*), to appear. Acceptance rate: 18.4% (365 / 1988).
               </td>
             </tr>
             <tr>
-              <td><span style="color:#1a73e8;font-weight:700">ICWS'2025</span></td>
+              <td>
+                <div class="conf-info">
+                  <span style="color:#1a73e8;font-weight:700">ICWS'2025</span>
+                  <img src="image/icws.png" alt="ICWS Logo" class="conf-logo" loading="lazy" decoding="async"/>
+                </div>
+              </td>
               <td>
                 <i>FedSKC: Federated Learning with Non-IID Data via Structural Knowledge Collaboration</i>
                 <a href="https://ieeexplore.ieee.org/abstract/document/11169609/" target="_blank" rel="noopener"><small>[PDF]</small></a>
                 <a href="https://github.com/hwang52/FedSKC" target="_blank" rel="noopener"><small>[Code]</small></a><br />
                 <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Lijuan Wang, Jiahua Shi, Shiping Chen, Jun Shen<br />
-                In <b>ICWS'25</b> (CCF-B, Core A), to appear. Acceptance rate: 23.8% (64/346).
+                In <b>ICWS'25</b> (CCF-B, Core A), to appear. Acceptance rate: 23.8% (64 / 346).
               </td>
             </tr>
             <tr>
@@ -202,5 +225,4 @@
   </script>
 
 </body>
-
 </html>
