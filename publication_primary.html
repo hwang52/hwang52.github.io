@@ -1,319 +1,819 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a237e" />
-  <title>Huan Wang's Homepage - Publications</title>
-  <style>
-    :root{
-      --bg:#f7f7f7; --card:#fff; --text:#333; --brand1:#3949ab; --brand2:#1a237e;
-      --link:#1a73e8; --accent:#FF4D50; --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.06);
-    }
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0; font-family: system-ui,-apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--text); line-height:1.75; font-size:clamp(16px,1.05vw+14px,18px)}
-    a{color:var(--link); text-decoration:none} a:hover{text-decoration:underline}
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#1a237e" />
+    <title>Huan Wang's Homepage - Publications</title>
+    <style>
+      :root {
+        --bg: #f7f7f7;
+        --card: #fff;
+        --text: #333;
+        --brand1: #3949ab;
+        --brand2: #1a237e;
+        --link: #1a73e8;
+        --accent: #ff4d50;
+        --radius: 16px;
+        --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        font-size: clamp(16px, 1.05vw+14px, 18px);
+      }
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
-    /* Header */
-    header{position:sticky; top:0; z-index:999; background:linear-gradient(90deg,var(--brand1),var(--brand2)); color:#fff; box-shadow:0 2px 8px rgba(0,0,0,.15)}
-    .header-inner{max-width:1200px; margin:0 auto; padding:14px 16px; display:grid; grid-template-columns:1fr auto; gap:12px; align-items:center}
-    .logo a{color:#fff; font-size:clamp(20px,2.2vw,28px); font-weight:700}
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: linear-gradient(90deg, var(--brand1), var(--brand2));
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 14px 16px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo a {
+        color: #fff;
+        font-size: clamp(20px, 2.2vw, 28px);
+        font-weight: 700;
+      }
 
-    .menu-toggle{display:none}
-    nav ul{display:flex; gap:24px; list-style:none; margin:0; padding:0}
-    nav a{color:#fff; position:relative; padding:4px 2px}
-    nav a::after{content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0; background:#fff; transition:width .25s ease}
-    nav a:hover::after, nav .current a::after{width:100%}
-    #nav-menu li a {
-  font-size: 18px; /* 你可以调成 20px、22px 等更大 */
- }
+      .menu-toggle {
+        display: none;
+      }
+      nav ul {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        color: #fff;
+        position: relative;
+        padding: 4px 2px;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0;
+        background: #fff;
+        transition: width 0.25s ease;
+      }
+      nav a:hover::after,
+      nav .current a::after {
+        width: 100%;
+      }
+      #nav-menu li a {
+        font-size: 18px; /* 你可以调成 20px、22px 等更大 */
+      }
 
+      /* Containers */
+      .content {
+        max-width: 1200px;
+        width: min(95%, 1200px);
+        margin: 24px auto;
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: clamp(16px, 2.2vw, 32px);
+      }
+      h3 {
+        font-size: clamp(20px, 1.6vw, 26px);
+        color: #002d72;
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 8px;
+        margin: 28px 0 16px;
+      }
+      h4 {
+        margin: 6px 0 18px;
+        color: #555;
+        font-weight: 500;
+      }
+      .divider {
+        border-top: 1px solid #e5e7eb;
+        margin: 20px 0;
+      }
+      .highlight {
+        color: var(--accent);
+        font-weight: 700;
+      }
 
-    /* Containers */
-    .content{max-width:1200px; width:min(95%,1200px); margin:24px auto; background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:clamp(16px,2.2vw,32px)}
-    h3{font-size:clamp(20px,1.6vw,26px); color:#002D72; border-bottom:2px solid #e5e7eb; padding-bottom:8px; margin:28px 0 16px}
-    h4{margin:6px 0 18px; color:#555; font-weight:500}
-    .divider{border-top:1px solid #e5e7eb; margin:20px 0}
-    .highlight{color:var(--accent); font-weight:700}
+      /* Publication tables -> responsive */
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 10px 8px;
+      }
+      td {
+        vertical-align: top;
+        padding: 5px;
+      }
+      td:first-child {
+        width: 140px;
+        font-weight: 700;
+        white-space: nowrap;
+        vertical-align: middle;
+        height: 100%;
+      }
+      td:first-child .conf-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+        min-height: 100%;
+      }
+      td:first-child .conf-logo {
+        max-width: 136px;
+        height: 66px;
+        display: block;
+      }
 
-    /* Publication tables -> responsive */
-    table{width:100%; border-collapse:separate; border-spacing:10px 8px}
-    td{vertical-align:top; padding:5px}
-    td:first-child{width:140px; font-weight:700; white-space:nowrap; vertical-align:middle; height:100%}
-    td:first-child .conf-info{display:flex; flex-direction:column; align-items:center; gap:8px; justify-content:center; min-height:100%}
-    td:first-child .conf-logo{max-width:136px; height:66px; display:block}
+      /* Stack rows on narrow screens */
+      @media (max-width: 720px) {
+        td:first-child {
+          width: auto;
+          height: auto;
+        }
+        td:first-child .conf-info {
+          min-height: auto;
+        }
+        /* make each TR a card */
+        table tbody tr {
+          display: block;
+          padding: 12px;
+          border-radius: 12px;
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+          background: #fff;
+          margin: 10px 0;
+        }
+        table tbody tr td {
+          display: block;
+          width: 100%;
+          padding: 6px 0;
+        }
+        table {
+          border-spacing: 0 12px;
+        }
+      }
 
-    /* Stack rows on narrow screens */
-    @media (max-width: 720px){
-      td:first-child{width:auto; height:auto}
-      td:first-child .conf-info{min-height:auto}
-      /* make each TR a card */
-      table tbody tr{display:block; padding:12px; border-radius:12px; box-shadow:0 1px 6px rgba(0,0,0,.06); background:#fff; margin:10px 0}
-      table tbody tr td{display:block; width:100%; padding:6px 0}
-      table{border-spacing:0 12px}
-    }
+      /* Mobile nav */
+      @media (max-width: 960px) {
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #fff;
+          color: var(--brand1);
+          border: 0;
+          border-radius: 10px;
+          padding: 8px 12px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        nav ul {
+          flex-direction: column;
+          gap: 12px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+        nav ul.show {
+          max-height: 320px;
+          margin-top: 8px;
+        }
+      }
 
-    /* Mobile nav */
-    @media (max-width: 960px){
-      .menu-toggle{display:inline-flex; align-items:center; gap:8px; background:#fff; color:var(--brand1); border:0; border-radius:10px; padding:8px 12px; font-weight:600; cursor:pointer}
-      nav ul{flex-direction:column; gap:12px; max-height:0; overflow:hidden; transition:max-height .3s ease}
-      nav ul.show{max-height:320px; margin-top:8px}
-    }
-
-    @media (prefers-reduced-motion: reduce){ nav a::after{transition:none} }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="header-inner">
-      <div class="logo"><a href="index.html">Huan Wang (王欢)</a></div>
-      <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
-      <nav>
-        <ul id="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li class="current"><a href="publication_primary.html">Publications</a></li>
-          <li><a href="group.html">Group</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="content">
-    <div id="main">
-      <div class="inner">
-        <h3><span style="color:#6E402E">Refereed Publications</span> (<a href="https://scholar.google.com/citations?user=p6qvDDAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>)</h3>
-        <h4>Please see my Google Scholar for Full Publication List.</h4>
-
-        <h3><b>2026</b></h3>
-        <table>
-          <tbody>
-            <!-- IDEAL -->
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">Arxiv</span>
-                  <img src="image/IDEAL.png" alt="CVPR Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">Beyond Normal References: Discriminative Few-Shot Anomaly Detection</span>
-                <a href="https://arxiv.org/abs/2605.23231" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/mala-lab/IDEAL" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Jun Shen, Jun Yan, Guansong Pang<br />
-                Preprint.
-              </td>
-            </tr>
-            <!-- ICML -->
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">ICML 2026</span>
-                  <img src="image/icml_FedHPro.png" alt="CVPR Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">FedHPro: Federated Hyper-Prototype Learning via Gradient Matching</span>
-                <a href="https://arxiv.org/abs/2605.13475" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/mala-lab/FedHPro" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Jun Shen, Haoran Li, Zhenyu Yang, Jun Yan, Ousman Manjang, Yanlong Zhai, Di Wu, Guansong Pang<br />
-                In <b>ICML'26</b> (CCF-A, Core A*), to appear. Acceptance rate: 26.6% (6352/23918).
-              </td>
-            </tr>
-            <!-- CVPR -->
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">CVPR 2026</span>
-                  <img src="image/CVPR_f2dc.png" alt="CVPR Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">Domain-Skewed Federated Learning with Feature Decoupling and Calibration</span>
-                <a href="https://arxiv.org/abs/2603.14238" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/mala-lab/F2DC" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Jun Shen, Jun Yan, Guansong Pang<br />
-                In <b>CVPR'26</b> (CCF-A, Core A*), to appear. Acceptance rate: 25.42% (4090/16092).
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">AAAI 2026 (Oral)</span>
-                  <img src="image/aaai.png" alt="AAAI Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">Towards Zero-Shot Diabetic Retinopathy Grading: Learning Generalized Knowledge via Prompt-Driven Matching and Emulating</span>
-                <a href="https://ojs.aaai.org/index.php/AAAI/article/view/37948" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/hwang52/ProMEDR" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Haoran Li, Yuxin Lin, Huaming Chen, Jun Yan, Lijuan Wang, Jiahua Shi, Qihao Xu, Yongting Hu, Yong Xu, Jun Shen<br />
-                In <b>AAAI'26</b> (CCF-A, Core A*), to appear. Acceptance rate: 17.6% (4167/23680).
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">IJCV</span>
-                  <img src="image/IJCV.jpg" alt="IJCV Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">From Unsupervised to Zero-Shot: 3D Domain Adaptation for Cryo-Electron Tomography Segmentation</span>
-                <a href="https://github.com/xulabs/aitom" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/xulabs/aitom" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                Haoran Li, Xingjian Li, <b>Huan Wang</b>, Jiahua Shi, Huaming Chen, Bo Du, Johan Barthelemy, Daisuke Kihara, Jun Shen, Min Xu<br />
-                In <b>International Journal of Computer Vision (IJCV)</b> (CCF-A, Core A*).
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3><b>2025</b></h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">ICCV 2025</span>
-                  <img src="image/iccv.png" alt="ICCV Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">FedDifRC: Unlocking the Potential of Text-to-Image Diffusion Models in Heterogeneous Federated Learning</span>
-                <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_FedDifRC_Unlocking_the_Potential_of_Text-to-Image_Diffusion_Models_in_Heterogeneous_ICCV_2025_paper.html" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/hwang52/FedDifRC" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua Shi, Jun Shen<br />
-                In <b>ICCV'25</b> (CCF-A, Core A*), to appear. Acceptance rate: 24% (2698/11239).
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">KDD 2025 (Oral)</span>
-                  <img src="image/kdd.png" alt="KDD Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">FedSC: Federated Learning with Semantic-Aware Collaboration</span>
-                <a href="https://dl.acm.org/doi/abs/10.1145/3711896.3736957" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/hwang52/FedSC" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua Shi, Jun Shen<br />
-                In <b>KDD'25</b> (CCF-A, Core A*), to appear. Acceptance rate: 18.4% (365/1988).
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">ICWS 2025</span>
-                  <img src="image/icws.png" alt="ICWS Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">FedSKC: Federated Learning with Non-IID Data via Structural Knowledge Collaboration</span>
-                <a href="https://ieeexplore.ieee.org/abstract/document/11169609/" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/hwang52/FedSKC" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Lijuan Wang, Jiahua Shi, Shiping Chen, Jun Shen<br />
-                In <b>ICWS'25</b> (CCF-B, Core A), to appear. Acceptance rate: 23.8% (64/346).
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">IEEE TMM</span>
-                  <img src="image/ieee_tmm.png" alt="ICWS Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">Dual Visual Prompting with Context-Modulated Diffusion Prompts</span>
-                <a href="https://ieeexplore.ieee.org/abstract/document/11370236" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/hwang52/CoMoDP" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua Shi, Jun Shen<br />
-                In <b>IEEE Transactions on Multimedia</b> (CCF-A, Core A*).
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">IEEE TGRS</span>
-                  <img src="image/ieee_tgrs.png" alt="ICWS Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">QCL-LNF: A Spatio-Temporal Quantum CNN-LSTM Model for Long-Term NDVI Forecasting</span>
-                <a href="https://ieeexplore.ieee.org/abstract/document/11145127" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://ieeexplore.ieee.org/abstract/document/11145127" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                Jing Sun, Jun Shen, Haoran Li, <b>Huan Wang</b>, Aiai Ren, Xu Zhou, Binbin Yong<br />
-                In <b>IEEE Transactions on Geoscience and Remote Sensing</b> (CCF-B, SCI-Q1).
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3><b>2022</b></h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">ISPA 2022</span>
-                  <img src="image/ispa_1.png" alt="ICWS Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">Logit Calibration for Non-IID and Long-Tailed Data in Federated Learning</span>
-                <a href="https://ieeexplore.ieee.org/abstract/document/10070666" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/hwang52/FedLC" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Lijuan Wang, Jun Shen<br />
-                In <b>IEEE International Symposium on Parallel and Distributed Processing with Applications</b>.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">ISPA 2022</span>
-                  <img src="image/ispa_2.png" alt="ICWS Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">Distributional Knowledge Transfer for Heterogeneous Federated Learning</span>
-                <a href="https://ieeexplore.ieee.org/abstract/document/10070673" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://github.com/hwang52/FedDKT" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Lijuan Wang, Jun Shen<br />
-                In <b>IEEE International Symposium on Parallel and Distributed Processing with Applications</b>.
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="conf-info">
-                  <span style="color:#1a73e8;font-weight:700">ICME 2022</span>
-                  <img src="image/icme.png" alt="ICWS Logo" class="conf-logo" loading="lazy" decoding="async"/>
-                </div>
-              </td>
-              <td>
-                <li><span style="color:purple;font-weight:bold">FedKG: Model-Optimized Federated Learning for Local Client Training with Non-IID Private Data</span>
-                <a href="https://ieeexplore.ieee.org/abstract/document/9816323" target="_blank" rel="noopener"><small>[PDF]</small></a>
-                <a href="https://ieeexplore.ieee.org/abstract/document/9816323" target="_blank" rel="noopener"><small>[Code]</small></a></li>
-                <b>Huan Wang</b>, Lijuan Wang<br />
-                In <b>IEEE International Conference on Multimedia and Expo</b>.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
+      @media (prefers-reduced-motion: reduce) {
+        nav a::after {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="logo"><a href="index.html">Huan Wang (王欢)</a></div>
+        <button
+          class="menu-toggle"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+          onclick="toggleMenu()"
+        >
+          ☰ Menu
+        </button>
+        <nav>
+          <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="current">
+              <a href="publication_primary.html">Publications</a>
+            </li>
+            <li><a href="group.html">Group</a></li>
+          </ul>
+        </nav>
       </div>
-    </div>
-  </main>
+    </header>
 
-  <script>
-    function toggleMenu(){
-      const menu=document.getElementById('nav-menu');
-      const btn=document.querySelector('.menu-toggle');
-      menu.classList.toggle('show');
-      const expanded=btn.getAttribute('aria-expanded')==='true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-    }
-  </script>
+    <main class="content">
+      <div id="main">
+        <div class="inner">
+          <h3><span style="color: #6e402e">Refereed Publications</span></h3>
+          <!-- <h4>Please see my Google Scholar for Full Publication List.</h4> -->
 
-</body>
+          <h3><b>2026</b></h3>
+          <table>
+            <tbody>
+              <!-- IDEAL -->
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700">Arxiv</span>
+                    <img
+                      src="image/IDEAL.png"
+                      alt="CVPR Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >Beyond Normal References: Discriminative Few-Shot Anomaly
+                      Detection</span
+                    >
+                    <a
+                      href="https://arxiv.org/abs/2605.23231"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/mala-lab/IDEAL"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Jun Shen, Jun Yan, Guansong Pang<br />
+                  Preprint.
+                </td>
+              </tr>
+              <!-- ICML -->
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >ICML 2026</span
+                    >
+                    <img
+                      src="image/icml_FedHPro.png"
+                      alt="CVPR Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >FedHPro: Federated Hyper-Prototype Learning via Gradient
+                      Matching</span
+                    >
+                    <a
+                      href="https://arxiv.org/abs/2605.13475"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/mala-lab/FedHPro"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Jun Shen, Haoran Li, Zhenyu Yang, Jun Yan,
+                  Ousman Manjang, Yanlong Zhai, Di Wu, Guansong Pang<br />
+                  In <b>ICML'26</b> (CCF-A, Core A*), to appear. Acceptance
+                  rate: 26.6% (6352/23918).
+                </td>
+              </tr>
+              <!-- CVPR -->
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >CVPR 2026</span
+                    >
+                    <img
+                      src="image/CVPR_f2dc.png"
+                      alt="CVPR Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >Domain-Skewed Federated Learning with Feature Decoupling
+                      and Calibration</span
+                    >
+                    <a
+                      href="https://arxiv.org/abs/2603.14238"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/mala-lab/F2DC"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Jun Shen, Jun Yan, Guansong Pang<br />
+                  In <b>CVPR'26</b> (CCF-A, Core A*), to appear. Acceptance
+                  rate: 25.42% (4090/16092).
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >AAAI 2026 (Oral)</span
+                    >
+                    <img
+                      src="image/aaai.png"
+                      alt="AAAI Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >Towards Zero-Shot Diabetic Retinopathy Grading: Learning
+                      Generalized Knowledge via Prompt-Driven Matching and
+                      Emulating</span
+                    >
+                    <a
+                      href="https://ojs.aaai.org/index.php/AAAI/article/view/37948"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/hwang52/ProMEDR"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Haoran Li, Yuxin Lin, Huaming Chen, Jun Yan,
+                  Lijuan Wang, Jiahua Shi, Qihao Xu, Yongting Hu, Yong Xu, Jun
+                  Shen<br />
+                  In <b>AAAI'26</b> (CCF-A, Core A*), to appear. Acceptance
+                  rate: 17.6% (4167/23680).
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700">IJCV</span>
+                    <img
+                      src="image/IJCV.jpg"
+                      alt="IJCV Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >From Unsupervised to Zero-Shot: 3D Domain Adaptation for
+                      Cryo-Electron Tomography Segmentation</span
+                    >
+                    <a
+                      href="https://github.com/xulabs/aitom"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/xulabs/aitom"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  Haoran Li, Xingjian Li, <b>Huan Wang</b>, Jiahua Shi, Huaming
+                  Chen, Bo Du, Johan Barthelemy, Daisuke Kihara, Jun Shen, Min
+                  Xu<br />
+                  In
+                  <b>International Journal of Computer Vision (IJCV)</b> (CCF-A,
+                  Core A*).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3><b>2025</b></h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >ICCV 2025</span
+                    >
+                    <img
+                      src="image/iccv.png"
+                      alt="ICCV Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >FedDifRC: Unlocking the Potential of Text-to-Image
+                      Diffusion Models in Heterogeneous Federated Learning</span
+                    >
+                    <a
+                      href="https://openaccess.thecvf.com/content/ICCV2025/html/Wang_FedDifRC_Unlocking_the_Potential_of_Text-to-Image_Diffusion_Models_in_Heterogeneous_ICCV_2025_paper.html"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/hwang52/FedDifRC"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua
+                  Shi, Jun Shen<br />
+                  In <b>ICCV'25</b> (CCF-A, Core A*), to appear. Acceptance
+                  rate: 24% (2698/11239).
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >KDD 2025 (Oral)</span
+                    >
+                    <img
+                      src="image/kdd.png"
+                      alt="KDD Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >FedSC: Federated Learning with Semantic-Aware
+                      Collaboration</span
+                    >
+                    <a
+                      href="https://dl.acm.org/doi/abs/10.1145/3711896.3736957"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/hwang52/FedSC"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua
+                  Shi, Jun Shen<br />
+                  In <b>KDD'25</b> (CCF-A, Core A*), to appear. Acceptance rate:
+                  18.4% (365/1988).
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >ICWS 2025</span
+                    >
+                    <img
+                      src="image/icws.png"
+                      alt="ICWS Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >FedSKC: Federated Learning with Non-IID Data via
+                      Structural Knowledge Collaboration</span
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/11169609/"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/hwang52/FedSKC"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Lijuan
+                  Wang, Jiahua Shi, Shiping Chen, Jun Shen<br />
+                  In <b>ICWS'25</b> (CCF-B, Core A), to appear. Acceptance rate:
+                  23.8% (64/346).
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >IEEE TMM</span
+                    >
+                    <img
+                      src="image/ieee_tmm.png"
+                      alt="ICWS Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >Dual Visual Prompting with Context-Modulated Diffusion
+                      Prompts</span
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/11370236"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/hwang52/CoMoDP"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Haoran Li, Huaming Chen, Jun Yan, Jiahua
+                  Shi, Jun Shen<br />
+                  In <b>IEEE Transactions on Multimedia</b> (CCF-A, Core A*).
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >IEEE TGRS</span
+                    >
+                    <img
+                      src="image/ieee_tgrs.png"
+                      alt="ICWS Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >QCL-LNF: A Spatio-Temporal Quantum CNN-LSTM Model for
+                      Long-Term NDVI Forecasting</span
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/11145127"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/11145127"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  Jing Sun, Jun Shen, Haoran Li, <b>Huan Wang</b>, Aiai Ren, Xu
+                  Zhou, Binbin Yong<br />
+                  In
+                  <b>IEEE Transactions on Geoscience and Remote Sensing</b>
+                  (CCF-B, SCI-Q1).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3><b>2022</b></h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >ISPA 2022</span
+                    >
+                    <img
+                      src="image/ispa_1.png"
+                      alt="ICWS Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >Logit Calibration for Non-IID and Long-Tailed Data in
+                      Federated Learning</span
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/10070666"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/hwang52/FedLC"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Lijuan Wang, Jun Shen<br />
+                  In
+                  <b
+                    >IEEE International Symposium on Parallel and Distributed
+                    Processing with Applications</b
+                  >.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >ISPA 2022</span
+                    >
+                    <img
+                      src="image/ispa_2.png"
+                      alt="ICWS Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >Distributional Knowledge Transfer for Heterogeneous
+                      Federated Learning</span
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/10070673"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://github.com/hwang52/FedDKT"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Lijuan Wang, Jun Shen<br />
+                  In
+                  <b
+                    >IEEE International Symposium on Parallel and Distributed
+                    Processing with Applications</b
+                  >.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="conf-info">
+                    <span style="color: #1a73e8; font-weight: 700"
+                      >ICME 2022</span
+                    >
+                    <img
+                      src="image/icme.png"
+                      alt="ICWS Logo"
+                      class="conf-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <li>
+                    <span style="color: purple; font-weight: bold"
+                      >FedKG: Model-Optimized Federated Learning for Local
+                      Client Training with Non-IID Private Data</span
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/9816323"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[PDF]</small></a
+                    >
+                    <a
+                      href="https://ieeexplore.ieee.org/abstract/document/9816323"
+                      target="_blank"
+                      rel="noopener"
+                      ><small>[Code]</small></a
+                    >
+                  </li>
+                  <b>Huan Wang</b>, Lijuan Wang<br />
+                  In
+                  <b>IEEE International Conference on Multimedia and Expo</b>.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("nav-menu");
+        const btn = document.querySelector(".menu-toggle");
+        menu.classList.toggle("show");
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+      }
+    </script>
+  </body>
 </html>

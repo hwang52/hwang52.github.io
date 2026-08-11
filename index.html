@@ -1,272 +1,614 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a237e" />
-  <title>Huan Wang's Homepage</title>
-  <style>
-    :root{
-      --bg:#f7f7f7;
-      --card:#ffffff;
-      --text:#333333;
-      --muted:#6b7280;
-      --brand-1:#3949ab;
-      --brand-2:#1a237e;
-      --link:#1a73e8;
-      --accent:#FF4D50;
-      --radius:16px;
-      --shadow:0 8px 24px rgba(0,0,0,.06);
-      --shadow-sm:0 2px 8px rgba(0,0,0,.1);
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#1a237e" />
+    <title>Huan Wang's Homepage</title>
+    <style>
+      :root {
+        --bg: #f7f7f7;
+        --card: #ffffff;
+        --text: #333333;
+        --muted: #6b7280;
+        --brand-1: #3949ab;
+        --brand-2: #1a237e;
+        --link: #1a73e8;
+        --accent: #ff4d50;
+        --radius: 16px;
+        --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
 
-    /* Reset */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.7;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      text-rendering:optimizeLegibility;
-      font-size:clamp(16px, 1.05vw + 14px, 18px);
-    }
+      /* Reset */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          "Apple Color Emoji",
+          "Segoe UI Emoji";
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-size: clamp(16px, 1.05vw + 14px, 18px);
+      }
 
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    img{max-width:100%;display:block}
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
 
-    /* Header */
-    header{
-      position:sticky;top:0;z-index:999;
-      background:linear-gradient(90deg, var(--brand-1), var(--brand-2));
-      color:#fff;
-      box-shadow:var(--shadow-sm);
-    }
-    .header-inner{
-      max-width:1200px;
-      margin:0 auto;
-      padding:14px 16px;
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:12px;
-      align-items:center;
-    }
-    .logo a{color:#fff;font-weight:700;font-size:clamp(20px,2.2vw,28px)}
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+        color: #fff;
+        box-shadow: var(--shadow-sm);
+      }
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 14px 16px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 12px;
+        align-items: center;
+      }
+      .logo a {
+        color: #fff;
+        font-weight: 700;
+        font-size: clamp(20px, 2.2vw, 28px);
+      }
 
-    .menu-toggle{display:none}
-    nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0}
-    nav a{color:#fff;position:relative;padding:4px 2px}
-    nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:#fff;transition:width .25s ease}
-    nav a:hover::after, nav .current a::after{width:100%}
+      .menu-toggle {
+        display: none;
+      }
+      nav ul {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        color: #fff;
+        position: relative;
+        padding: 4px 2px;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0;
+        background: #fff;
+        transition: width 0.25s ease;
+      }
+      nav a:hover::after,
+      nav .current a::after {
+        width: 100%;
+      }
 
-    /* Card containers */
-    .profile,.content{
-      max-width:1200px; width:min(95%, 1200px);
-      margin:24px auto;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:clamp(16px, 2.2vw, 32px);
-    }
+      /* Card containers */
+      .profile,
+      .content {
+        max-width: 1200px;
+        width: min(95%, 1200px);
+        margin: 24px auto;
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: clamp(16px, 2.2vw, 32px);
+      }
 
-    /* Profile layout */
-    .profile{
-      display:grid;
-      grid-template-columns: 280px 1fr;
-      gap:clamp(16px, 3vw, 40px);
-      align-items:center;
-    }
-    .profile .left img{
-      width:88%; height:auto; border-radius:var(--radius);
-      box-shadow:0 4px 16px rgba(0,0,0,.08);
-    }
-    .profile .right p{margin:0 0 10px}
+      /* Profile layout */
+      .profile {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: clamp(16px, 3vw, 40px);
+        align-items: center;
+      }
+      .profile .left img {
+        width: 88%;
+        height: auto;
+        border-radius: var(--radius);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      .profile .right p {
+        margin: 0 0 10px;
+      }
 
-    h3{font-size:clamp(20px,1.6vw,26px);color:#002D72;border-bottom:2px solid #e5e7eb;padding-bottom:8px;margin:28px 0 16px}
-    p, li {font-size:1em}
-    li{margin-bottom:10px}
-    .divider.line{border-top:1px solid #e5e7eb;margin:20px 0}
-    .highlight{color:var(--accent);font-weight:700}
+      h3 {
+        font-size: clamp(20px, 1.6vw, 26px);
+        color: #002d72;
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 8px;
+        margin: 28px 0 16px;
+      }
+      p,
+      li {
+        font-size: 1em;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      .divider.line {
+        border-top: 1px solid #e5e7eb;
+        margin: 20px 0;
+      }
+      .highlight {
+        color: var(--accent);
+        font-weight: 700;
+      }
 
-    /* School logos */
-    .school-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:40px;padding:32px 0}
-    .school-logos .logo-box{width:160px; height:100px; display:flex;align-items:center;justify-content:center}
+      /* School logos */
+      .school-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        padding: 32px 0;
+      }
+      .school-logos .logo-box {
+        width: 160px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    /* Map container */
-    .map-container{
-      margin: 24px auto;
-      width: min(100%, 700px);
-      background: var(--card);
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: var(--shadow-sm);
-      text-align:center;
-    }
+      /* Map container */
+      .map-container {
+        margin: 24px auto;
+        width: min(100%, 700px);
+        background: var(--card);
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+        text-align: center;
+      }
 
-    /* Responsive: mobile-first adjustments */
-    @media (max-width: 960px){
-      .header-inner{grid-template-columns:1fr auto}
-      .menu-toggle{display:inline-flex;align-items:center;gap:8px;color:var(--brand-1);background:#fff;border:0;border-radius:10px;padding:8px 12px;font-weight:600;cursor:pointer}
-      nav ul{position:relative;flex-direction:column;gap:12px;max-height:0;overflow:hidden;transition:max-height .3s ease}
-      nav ul.show{max-height:320px;margin-top:8px}
-    }
+      /* Responsive: mobile-first adjustments */
+      @media (max-width: 960px) {
+        .header-inner {
+          grid-template-columns: 1fr auto;
+        }
+        .menu-toggle {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--brand-1);
+          background: #fff;
+          border: 0;
+          border-radius: 10px;
+          padding: 8px 12px;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        nav ul {
+          position: relative;
+          flex-direction: column;
+          gap: 12px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+        nav ul.show {
+          max-height: 320px;
+          margin-top: 8px;
+        }
+      }
 
-    @media (max-width: 720px){
-      .profile{grid-template-columns:1fr}
-      .profile .left{order:1}
-      .profile .right{order:2}
-    }
+      @media (max-width: 720px) {
+        .profile {
+          grid-template-columns: 1fr;
+        }
+        .profile .left {
+          order: 1;
+        }
+        .profile .right {
+          order: 2;
+        }
+      }
 
-    /* Motion preferences */
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto !important}
-      nav a::after{transition:none}
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="header-inner">
-      <div class="logo"><a href="index.html">Huan Wang (王欢)</a></div>
-      <button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" onclick="toggleMenu()">☰ Menu</button>
-      <nav>
-        <ul id="nav-menu">
-          <li class="current"><a href="index.html">Home</a></li>
-          <li><a href="publication_primary.html">Publications</a></li>
-          <li><a href="group.html">Group</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="profile" aria-label="Profile">
-      <div class="left">
-        <img src="image/huanwang.png" alt="Profile picture" loading="lazy" decoding="async"/>
+      /* Motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+        }
+        nav a::after {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="logo"><a href="index.html">Huan Wang (王欢)</a></div>
+        <button
+          class="menu-toggle"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+          onclick="toggleMenu()"
+        >
+          ☰ Menu
+        </button>
+        <nav>
+          <ul id="nav-menu">
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="publication_primary.html">Publications</a></li>
+            <li><a href="group.html">Group</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="right">
-        <p><strong>PhD Candidate</strong><br>
-          Visiting at <a href="https://www.smu.edu.sg/" target="_blank" rel="noopener">Singapore Management University (SMU)</a><br>
-          <a href="https://computing.smu.edu.sg/" target="_blank" rel="noopener">School of Computing and Information Systems</a><br>
-          <a href="https://www.uow.edu.au/" target="_blank" rel="noopener">University of Wollongong (UOW)</a><br>
-        </p>
-        <p><strong>Contact:</strong><br>
-          hw226@uowmail.edu.au<br>
-          huanwang1018@gmail.com
+    </header>
+
+    <main>
+      <section class="profile" aria-label="Profile">
+        <div class="left">
+          <img
+            src="image/huanwang.png"
+            alt="Profile picture"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="right">
+          <p>
+            <strong>PhD Candidate</strong><br />
+            Visiting at
+            <a href="https://www.smu.edu.sg/" target="_blank" rel="noopener"
+              >Singapore Management University (SMU)</a
+            ><br />
+            <a
+              href="https://computing.smu.edu.sg/"
+              target="_blank"
+              rel="noopener"
+              >School of Computing and Information Systems</a
+            ><br />
+            <a href="https://www.uow.edu.au/" target="_blank" rel="noopener"
+              >University of Wollongong (UOW)</a
+            ><br />
+          </p>
+          <p>
+            <strong>Contact:</strong><br />
+            hw226@uowmail.edu.au<br />
+            huanwang1018@gmail.com
+          </p>
+          <p>
+            •
+            <a
+              href="https://scholar.google.com/citations?user=p6qvDDAAAAAJ&hl=en"
+              target="_blank"
+              rel="noopener"
+              >Google Scholar</a
+            >
+            •
+            <a href="https://github.com/hwang52/" target="_blank" rel="noopener"
+              >GitHub</a
+            >
+            •
+            <a
+              href="https://www.linkedin.com/in/huan-wang-05310826b/"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+            •
+            <a
+              href="https://orcid.org/0009-0000-3693-8576"
+              target="_blank"
+              rel="noopener"
+              >ORCID</a
+            >
+            <!-- • <a href="./image/CV_Huan.pdf" target="_blank" rel="noopener">CV</a> -->
+          </p>
+          <p>
+            <strong>Affiliation:</strong><br />
+            <a href="https://www.uow.edu.au/" target="_blank" rel="noopener"
+              >University of Wollongong</a
+            >,
+            <a href="https://www.smu.edu.sg/" target="_blank" rel="noopener"
+              >Singapore Management University</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="divider line"></div>
+        <h3>📖 Biography</h3>
+        <p>
+          🙋‍♂️ I am currently a visiting PhD student at
+          <a href="https://computing.smu.edu.sg/" target="_blank" rel="noopener"
+            >Singapore Management University</a
+          >
+          under the supervision of
+          <a href="https://www.guansongpang.com/" target="_blank" rel="noopener"
+            ><strong>Prof. Guansong Pang</strong></a
+          >, and belong to the
+          <a href="https://github.com/mala-lab/" target="_blank" rel="noopener"
+            >Machine Learning & Applications (MaLA) Lab</a
+          >
+          at SMU. I am pursuing my PhD degree at
+          <a
+            href="https://www.uow.edu.au/engineering-information-sciences/schools-entities/scit/"
+            target="_blank"
+            rel="noopener"
+            >University of Wollongong</a
+          >, advised by
+          <a
+            href="https://scholars.uow.edu.au/jun-shen"
+            target="_blank"
+            rel="noopener"
+            ><strong>Prof. Jun Shen</strong></a
+          >
+          and
+          <a
+            href="https://scholars.uow.edu.au/jun-yan"
+            target="_blank"
+            rel="noopener"
+            ><strong>Prof. Jun Yan</strong></a
+          >. Previously, I received my Master's degree at
+          <a href="https://en.xidian.edu.cn/" target="_blank" rel="noopener"
+            >Xidian University</a
+          >
+          in 2023.
         </p>
         <p>
-          • <a href="https://scholar.google.com/citations?user=p6qvDDAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-          • <a href="https://github.com/hwang52/" target="_blank" rel="noopener">GitHub</a>
-          • <a href="https://www.linkedin.com/in/huan-wang-05310826b/" target="_blank" rel="noopener">LinkedIn</a>
-          • <a href="https://orcid.org/0009-0000-3693-8576" target="_blank" rel="noopener">ORCID</a>
-          • <a href="./image/CV_Huan.pdf" target="_blank" rel="noopener">CV</a>
+          My research interests lie in using Deep Learning to build Trustworthy
+          AI Systems. Currently, I focus on
+          <strong
+            >Efficient Agentic Reasoning (Attribution & Intervention)</strong
+          >
+          and <strong>Multimodal Anomaly Detection</strong>. Besides, I also
+          explore following areas:
         </p>
-        <p><strong>Affiliation:</strong><br>
-          <a href="https://www.uow.edu.au/" target="_blank" rel="noopener">University of Wollongong</a>, <a href="https://www.smu.edu.sg/" target="_blank" rel="noopener">Singapore Management University</a>
+        <ul>
+          <li>🎨 <strong>Visual Representation Learning</strong></li>
+          <li>🚨 <strong>Out-of-Distribution Generalization</strong></li>
+          <li>🍟 <strong>Multimodal Large Language Model</strong></li>
+          <li>🤖 <strong>Lifelong Learning of Large Language Model</strong></li>
+        </ul>
+
+        <p>
+          😄 I'm excited to work with colleagues in the
+          <a href="https://github.com/mala-lab" target="_blank" rel="noopener"
+            ><strong>Machine Learning & Applications (MaLA) Lab</strong></a
+          >
+          at Singapore Management University, focusing on
+          <strong>Agentic Reasoning</strong> and
+          <strong>Anomaly Detection</strong> for facilitating
+          <strong>Trustworthy AI</strong>.
         </p>
-      </div>
-    </section>
-
-    <section class="content">
-      <div class="divider line"></div>
-      <h3>📖 Biography</h3>
-      <p>
-        🙋‍♂️ I am currently a visiting PhD student at <a href="https://computing.smu.edu.sg/" target="_blank" rel="noopener">Singapore Management University</a> under the supervision of <a href="https://www.guansongpang.com/" target="_blank" rel="noopener"><strong>Prof. Guansong Pang</strong></a>, and belong to the <a href="https://github.com/mala-lab/" target="_blank" rel="noopener">Machine Learning & Applications (MaLA) Lab</a> at SMU. 
-        I am pursuing my PhD degree at <a href="https://www.uow.edu.au/engineering-information-sciences/schools-entities/scit/" target="_blank" rel="noopener">University of Wollongong</a>, advised by <a href="https://scholars.uow.edu.au/jun-shen" target="_blank" rel="noopener"><strong>Prof. Jun Shen</strong></a> and <a href="https://scholars.uow.edu.au/jun-yan" target="_blank" rel="noopener"><strong>Prof. Jun Yan</strong></a>. 
-        Previously, I received my Master's degree at <a href="https://en.xidian.edu.cn/" target="_blank" rel="noopener">Xidian University</a> in 2023.
-      </p>
-      <p>
-        My research interests lie in using Deep Learning to build Trustworthy AI Systems. 
-        Currently, I focus on <strong>Efficient/Faithful Agentic Reasoning (Attribution & Intervention)</strong> and <strong>Generalized Anomaly/Risk Detection</strong>. 
-        Besides, I also explore following areas:
-      </p>
-      <ul>
-        <li>🎨 <strong>Visual Representation Learning</strong></li>
-        <li>🚨 <strong>Out-of-Distribution Generalization</strong></li>
-        <li>🍟 <strong>Multimodal Large Language Model</strong></li>
-        <li>🤖 <strong>Lifelong Learning of Large Language Model</strong></li>
-      </ul>
-
-      <p>
-        😄 I'm excited to work with colleagues in the <a href="https://github.com/mala-lab" target="_blank" rel="noopener"><strong>Machine Learning & Applications (MaLA) Lab</strong></a> at Singapore Management University, focusing on <strong>Agentic Reasoning</strong> and <strong>Anomaly Detection</strong> for facilitating <strong>Trustworthy AI</strong>.
-      </p>
-      <!-- <p><span class="highlight">
+        <!-- <p><span class="highlight">
         🙋‍♂️<i>I am on job market for industry or postdoctoral research position. Please feel free to contact me (hw226@uowmail.edu.au) if you have any suitable opportunities.</i>
       </span></p> -->
 
-      <div class="divider line"></div>
+        <div class="divider line"></div>
 
-      <div class="divider line"></div>
+        <div class="divider line"></div>
 
-      <h3>📧 Recent News</h3>
-      <ul>
-        <li>
-            <span class="highlight">[New!]</span> 2026/05: We recently released a practical few-shot anomaly detection project <a href="https://github.com/mala-lab/IDEAL">IDEAL</a> (Intrinsic Deviation Learning for Discriminative FSAD). You're welcome to star and follow the GitHub repository.
-        </li>
-        <li>
-            2026/05: I released a research proposal <a href="./image/HuanWang_Proposal.pdf">Privacy-Enhancing Federated Multi-Agent Systems</a> on promoting privacy in MAS.
-        </li>
-        <li>
-            2026/05: I am giving an invited talk "Deep Anomaly Detection in Agricultural Images" at <a href="https://www.nature.com/nature-index/institution-outputs/china/yazhouwan-national-laboratory/65fd3679dbab18c97105e6ff">Yazhouwan National Laboratory</a>.
-        </li>
-        <li>
+        <h3>📧 Recent News</h3>
+        <ul>
+          <li>
+            <span class="highlight">[New!]</span> 2026/05: We recently released
+            a practical few-shot anomaly detection project
+            <a href="https://github.com/mala-lab/IDEAL">IDEAL</a> (Intrinsic
+            Deviation Learning for Discriminative FSAD). You're welcome to star
+            and follow the GitHub repository.
+          </li>
+          <li>
+            2026/05: I released a research proposal
+            <a href="./image/HuanWang_Proposal.pdf"
+              >Privacy-Enhancing Federated Multi-Agent Systems</a
+            >
+            on promoting privacy in MAS.
+          </li>
+          <li>
+            2026/05: I am giving an invited talk "Deep Anomaly Detection in
+            Agricultural Images" at
+            <a
+              href="https://www.nature.com/nature-index/institution-outputs/china/yazhouwan-national-laboratory/65fd3679dbab18c97105e6ff"
+              >Yazhouwan National Laboratory</a
+            >.
+          </li>
+          <li>
             2026/05: One paper on federated prototype learning is accepted to
-            <a href="https://icml.cc/Conferences/2026">ICML 2026</a> (26.6%, 6352/23918), see you Seoul!
-        </li>
-        <li>2026/02: One paper on cryo-electron segmentation is accepted to <a href="https://link.springer.com/journal/11263/">International Journal of Computer Vision (IJCV)</a>.</li>
-        <li>2026/02: One paper on feature decoupling is accepted to <a href="https://cvpr.thecvf.com/Conferences/2026/">CVPR 2026</a> (25.42%, 4090/16092).</li>
-        <li>2026/01: One paper on fake news detection is accepted to <a href="https://www2026.thewebconf.org/">WebConf (WWW) 2026</a> (20.1%, 676/3370).</li>
-        <li>2026/01: One paper on federated learning is accepted to <a href="https://kdd.sg/singapore-acm-sigkdd-symposium-2026/">KDD Singapore Symposium 2026 (Oral)</a>.</li>
-        <li>2025/12: As a Visiting Student (PhD) at SMU, supervised by <a href="https://sites.google.com/site/gspangsite/home" target="_blank" rel="noopener"><strong>Prof. Guansong Pang</strong></a>.</li>
-        <li>2025/11: One paper on zero-shot learning is accepted to <a href="https://aaai.org/conference/aaai/aaai-26/">AAAI 2026 (Oral)</a> (17.6%, 4167/23680).</li>
-        <li>2025/09: I am honored to receive the <a href="https://iccv.thecvf.com/Conferences/2025/BroadeningParticipation">ICCV 2025 Student Travel Award</a>.</li>
-        <li>2025/08: One paper on visual prompt tuning is accepted to <a href="https://signalprocessingsociety.org/publications-resources/ieee-transactions-multimedia">IEEE Transactions on Multimedia</a>.</li>
-        <li>2025/08: One paper on long-term forecasting is accepted to <a href="https://www.grss-ieee.org/publications/transactions-on-geoscience-remote-sensing">IEEE Transactions on Geoscience and Remote Sensing</a>.</li>
-        <li>2025/07: I am honored to receive the <a href="https://kdd2025.kdd.org/call-for-student-travel-award-applications/">KDD 2025 Student Travel Award</a>.</li>
-        <li>2025/06: One paper on federated learning with diffusion model is accepted to <a href="https://iccv.thecvf.com/">ICCV 2025</a> (24%, 2698/11239).</li>
-        <li>2025/05: One paper on semantic-aware federated learning is accepted to <a href="https://kdd2025.kdd.org/">KDD 2025 (Oral)</a> (18.4%, 365/1988).</li>
-        <li>2025/05: One paper on heterogeneous federated learning is accepted to <a href="https://services.conferences.computer.org/2025/icws-2025/">ICWS 2025</a> (23.8%, 64/346).</li>
-        <li>2024/02: Arrived at the Wollonong campus of UOW, officially beginning my research career.</li>
-        <li>2023/07: Completed Master's degree from XDU and joined UOW SCIT as a Research PhD.</li>
-      </ul>
+            <a href="https://icml.cc/Conferences/2026">ICML 2026</a> (26.6%,
+            6352/23918), see you Seoul!
+          </li>
+          <li>
+            2026/02: One paper on cryo-electron segmentation is accepted to
+            <a href="https://link.springer.com/journal/11263/"
+              >International Journal of Computer Vision (IJCV)</a
+            >.
+          </li>
+          <li>
+            2026/02: One paper on feature decoupling is accepted to
+            <a href="https://cvpr.thecvf.com/Conferences/2026/">CVPR 2026</a>
+            (25.42%, 4090/16092).
+          </li>
+          <li>
+            2026/01: One paper on fake news detection is accepted to
+            <a href="https://www2026.thewebconf.org/">WebConf (WWW) 2026</a>
+            (20.1%, 676/3370).
+          </li>
+          <li>
+            2026/01: One paper on federated learning is accepted to
+            <a href="https://kdd.sg/singapore-acm-sigkdd-symposium-2026/"
+              >KDD Singapore Symposium 2026 (Oral)</a
+            >.
+          </li>
+          <li>
+            2025/12: As a Visiting Student (PhD) at SMU, supervised by
+            <a
+              href="https://sites.google.com/site/gspangsite/home"
+              target="_blank"
+              rel="noopener"
+              ><strong>Prof. Guansong Pang</strong></a
+            >.
+          </li>
+          <li>
+            2025/11: One paper on zero-shot learning is accepted to
+            <a href="https://aaai.org/conference/aaai/aaai-26/"
+              >AAAI 2026 (Oral)</a
+            >
+            (17.6%, 4167/23680).
+          </li>
+          <li>
+            2025/09: I am honored to receive the
+            <a
+              href="https://iccv.thecvf.com/Conferences/2025/BroadeningParticipation"
+              >ICCV 2025 Student Travel Award</a
+            >.
+          </li>
+          <li>
+            2025/08: One paper on visual prompt tuning is accepted to
+            <a
+              href="https://signalprocessingsociety.org/publications-resources/ieee-transactions-multimedia"
+              >IEEE Transactions on Multimedia</a
+            >.
+          </li>
+          <li>
+            2025/08: One paper on long-term forecasting is accepted to
+            <a
+              href="https://www.grss-ieee.org/publications/transactions-on-geoscience-remote-sensing"
+              >IEEE Transactions on Geoscience and Remote Sensing</a
+            >.
+          </li>
+          <li>
+            2025/07: I am honored to receive the
+            <a
+              href="https://kdd2025.kdd.org/call-for-student-travel-award-applications/"
+              >KDD 2025 Student Travel Award</a
+            >.
+          </li>
+          <li>
+            2025/06: One paper on federated learning with diffusion model is
+            accepted to <a href="https://iccv.thecvf.com/">ICCV 2025</a> (24%,
+            2698/11239).
+          </li>
+          <li>
+            2025/05: One paper on semantic-aware federated learning is accepted
+            to <a href="https://kdd2025.kdd.org/">KDD 2025 (Oral)</a> (18.4%,
+            365/1988).
+          </li>
+          <li>
+            2025/05: One paper on heterogeneous federated learning is accepted
+            to
+            <a href="https://services.conferences.computer.org/2025/icws-2025/"
+              >ICWS 2025</a
+            >
+            (23.8%, 64/346).
+          </li>
+          <li>
+            2024/02: Arrived at the Wollonong campus of UOW, officially
+            beginning my research career.
+          </li>
+          <li>
+            2023/07: Completed Master's degree from XDU and joined UOW SCIT as a
+            Research PhD.
+          </li>
+        </ul>
 
-      <div class="divider line"></div>
+        <div class="divider line"></div>
 
-      <h3>Services and Awards</h3>
-      <ul>
-        <li><strong>Program Committee (Selected):</strong> ICCV, CVPR, KDD, ICML, NeurIPS, ECCV, AAAI, ICLR</li>
-        <li><strong>Journal Reviewer (Selected):</strong> IEEE TMM, IEEE TNNLS, IEEE TIP, IEEE TPAMI</li>
-        <li>ICCV 2025 Student Travel Award, Hawaii 2025</li>
-        <li>KDD 2025 Student Travel Award, Toronto 2025</li>
-        <li>ICML 2026 Silver Reviewer, Seoul, South Korea 2026</li>
-        <li>AAAI 2026 Outstanding Program Committee, Singapore 2026</li>
-        <li>CVPR 2025 Outstanding Reviewer, Nashville 2025</li>
-      </ul>
+        <h3>Services and Awards</h3>
+        <ul>
+          <li>
+            <strong>Program Committee (Selected):</strong> ICCV, CVPR, KDD,
+            ICML, NeurIPS, ECCV, AAAI, ICLR
+          </li>
+          <li>
+            <strong>Journal Reviewer (Selected):</strong> IEEE TMM, IEEE TNNLS,
+            IEEE TIP, IEEE TPAMI
+          </li>
+          <li>ICCV 2025 Student Travel Award, Hawaii 2025</li>
+          <li>KDD 2025 Student Travel Award, Toronto 2025</li>
+          <li>ICML 2026 Silver Reviewer, Seoul, South Korea 2026</li>
+          <li>AAAI 2026 Outstanding Program Committee, Singapore 2026</li>
+          <li>CVPR 2025 Outstanding Reviewer, Nashville 2025</li>
+        </ul>
 
-      <div class="school-logos">
-        <div class="logo-box"><img src="image/uow.png" alt="UOW Logo" loading="lazy" decoding="async" style="width:100px; height:auto;"></div>
-        <div class="logo-box"><img src="image/smu.png" alt="SMU Logo" loading="lazy" decoding="async"></div>
-        <div class="logo-box"><img src="image/xdu.png" alt="XDU Logo" loading="lazy" decoding="async" style="width:90px; height:auto;"></div>
+        <div class="school-logos">
+          <div class="logo-box">
+            <img
+              src="image/uow.png"
+              alt="UOW Logo"
+              loading="lazy"
+              decoding="async"
+              style="width: 100px; height: auto"
+            />
+          </div>
+          <div class="logo-box">
+            <img
+              src="image/smu.png"
+              alt="SMU Logo"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="logo-box">
+            <img
+              src="image/xdu.png"
+              alt="XDU Logo"
+              loading="lazy"
+              decoding="async"
+              style="width: 90px; height: auto"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div class="map-container">
+        <script
+          type="text/javascript"
+          id="mapmyvisitors"
+          src="//mapmyvisitors.com/map.js?d=LcsBjB9dbaj3GVCo35UVyMAkL1RoiP8-uAo52e94-xc&cl=ffffff&w=a"
+        ></script>
       </div>
-    </section>
+    </main>
 
-    <div class="map-container">
-      <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=LcsBjB9dbaj3GVCo35UVyMAkL1RoiP8-uAo52e94-xc&cl=ffffff&w=a"></script>
-    </div>
-  </main>
-
-  <script>
-    function toggleMenu(){
-      const menu=document.getElementById('nav-menu');
-      const btn=document.querySelector('.menu-toggle');
-      menu.classList.toggle('show');
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-    }
-  </script>
-</body>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("nav-menu");
+        const btn = document.querySelector(".menu-toggle");
+        menu.classList.toggle("show");
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!expanded));
+      }
+    </script>
+  </body>
 </html>
